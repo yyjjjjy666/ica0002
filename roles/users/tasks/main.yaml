@@ -1,0 +1,22 @@
+- name: create user juri
+  ansible.builtin.user:
+    name: juri
+    shell: /bin/bash
+
+- name: add key for juri
+  ansible.posix.authorized_key:
+    user: juri
+    state: present
+    key: https://github.com/hudolejev.keys
+
+- name: create users roman
+  ansible.builtin.user:
+    name: roman
+    shell: /bin/bash
+ 
+- name: add key for juri
+  ansible.posix.authorized_key:
+    user: roman
+    state: present
+    key: https://github.com/romankuchin.keys
+
