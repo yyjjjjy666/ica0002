@@ -1,6 +1,0 @@
-- name: Install uWSGI packages
-  apt: 
-    name: uwsgi-plugin-python3
-    state: present
-
-#- name: Add the uWSGI configuration for AGAMA application to /etc/uwsgi/apps-enabled/agama.ini
