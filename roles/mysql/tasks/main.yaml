@@ -1,35 +1,32 @@
-- name: install mysql-server
-  apt:
-    name: 
-    - mysql-server
-    - python3-pymysql
-    state: latest
+---
+  - name: Install MySQL server
+    apt:
+      name:
+        - mysql-server
+        - python3-pymysql
+      state: latest
 
-- name: start mysql service
-  service:
-    name: mysql
-    state: started
-    enabled: yes
+  - name: Start mysql
+    service:
+        name: mysql
+        state: started
+        enabled: yes
 
-- name: MySQL database
-  community.mysql.mysql_db:
-    name: "{{ mysql_database }}"
-    login_unix_socket: /var/run/mysqld/mysqld.sock
+  - name: Copy override to location
+    copy:
+      src: override.cnf
+      dest: /etc/mysql/mysql.conf.d/override.cnf
+    notify: Restart mysql
 
-- name: MySQL user
-  community.mysql.mysql_user:
-    name: "{{ mysql_user }}"
-    login_unix_socket: /var/run/mysqld/mysqld.sock
-    password: "{{ mysql_password }}"
-    host: "%"
-    priv: "{{ mysql_database }}.*:ALL"
+  - name: MySQL database
+    community.mysql.mysql_db:
+      name: "{{ mysql_database }}"
+      login_unix_socket: /var/run/mysqld/mysqld.sock
 
-- name: Override file
-  ansible.builtin.copy:
-    src: override.cnf
-    dest: /etc/mysql/mysql.conf.d/override.cnf
-
-- name: Restart service mysql
-  ansible.builtin.service:
-    name: mysql
-    state: restarted
+  - name: MySQL user
+    community.mysql.mysql_user:
+      name: "{{ mysql_user }}"
+      password: "{{ mysql_password }}"
+      host: "%"
+      priv: "{{ mysql_database }}.*:ALL"
+      login_unix_socket: /var/run/mysqld/mysqld.sock

@@ -20,3 +20,14 @@
     state: present
     key: https://github.com/romankuchin.keys
 
+- name: Create user for agama
+  ansible.builtin.user:
+    name: agama
+    shell: /bin/bash
+
+- name: Create dir for agama user
+  file:
+    path: /opt/agama
+    state: directory
+    owner: agama
+    mode: 0755

@@ -5,5 +5,12 @@
 
 - name: replace file
   ansible.builtin.copy:
-    src: index.html
-    dest: /var/www/html/index.html
+    src: default
+    dest: /etc/nginx/sites-enabled/default
+  notify: Restart nginx service
+
+- name: Start nginx
+  service:
+    name: nginx
+    state: started
+    enabled: yes

@@ -1,20 +1,9 @@
-- name: create user agama
-  ansible.builtin.user:
-    name: agama
-    shell: /bin/bash
-
-- name: Create the directory /opt/agama owned by user agama
-  ansible.builtin.file:
-    path: /opt/agama
-    state: directory
-    owner: agama
-
-- name: Install application dependencies
-  apt: 
-    name: 
-    - python3-flask-sqlalchemy
-    - python3-pymysql
-    state: present
+- name: Install agama dependecies
+  apt:
+    name:
+      - python3-flask-sqlalchemy
+      - python3-pymysql
+    state: latest
 
 - name: Install the application itself
   get_url:
