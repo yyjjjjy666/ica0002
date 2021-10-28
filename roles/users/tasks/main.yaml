@@ -1,33 +1,34 @@
-- name: create user juri
-  ansible.builtin.user:
-    name: juri
-    shell: /bin/bash
+---
+  - name: create user juri
+    ansible.builtin.user:
+      name: juri
+      shell: /bin/bash
 
-- name: add key for juri
-  ansible.posix.authorized_key:
-    user: juri
-    state: present
-    key: https://github.com/hudolejev.keys
+  - name: add key for juri
+    ansible.posix.authorized_key:
+      user: juri
+      state: present
+      key: https://github.com/hudolejev.keys
 
-- name: create users roman
-  ansible.builtin.user:
-    name: roman
-    shell: /bin/bash
+  - name: create users roman
+    ansible.builtin.user:
+      name: roman
+      shell: /bin/bash
  
-- name: add key for juri
-  ansible.posix.authorized_key:
-    user: roman
-    state: present
-    key: https://github.com/romankuchin.keys
+  - name: add key for juri
+    ansible.posix.authorized_key:
+      user: roman
+      state: present
+      key: https://github.com/romankuchin.keys
 
-- name: Create user for agama
-  ansible.builtin.user:
-    name: agama
-    shell: /bin/bash
+  - name: Create user for agama
+    ansible.builtin.user:
+      name: agama
+      shell: /bin/bash
 
-- name: Create dir for agama user
-  file:
-    path: /opt/agama
-    state: directory
-    owner: agama
-    mode: 0755
+  - name: Create dir for agama user
+    file:
+      path: /opt/agama
+      state: directory
+      owner: agama
+      mode: 0755

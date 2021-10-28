@@ -1,8 +1,8 @@
-elvis-1  ansible_host=193.40.156.86 ansible_port=11922 ansible_user=ubuntu
-elvis-2  ansible_host=193.40.156.86 ansible_port=3922 ansible_user=ubuntu
-
-[db_servers]
-elvis-2
+daniel-1  ansible_host=193.40.156.86 ansible_port=15922 ansible_user=ubuntu
+daniel-2  ansible_host=193.40.156.86 ansible_port=17022 ansible_user=ubuntu
 
 [web_servers]
-elvis-1
+daniel-1
+
+[db_servers]
+daniel-2

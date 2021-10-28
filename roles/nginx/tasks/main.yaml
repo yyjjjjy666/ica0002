@@ -1,16 +1,18 @@
-- name: install nginx
-  apt:
-    name: nginx
-    state: latest
+---
+  - name: Install nginx
+    apt:
+        name: nginx
+        state: latest
+        update_cache: yes
 
-- name: replace file
-  ansible.builtin.copy:
-    src: default
-    dest: /etc/nginx/sites-enabled/default
-  notify: Restart nginx service
+  - name: Copy config to location
+    copy:
+      src: default
+      dest: /etc/nginx/sites-enabled/default
+    notify: Restart nginx service
 
-- name: Start nginx
-  service:
-    name: nginx
-    state: started
-    enabled: yes
+  - name: Start nginx service
+    service:
+        name: nginx
+        state: started
+        enabled: yes
