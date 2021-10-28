@@ -1,23 +1,23 @@
 ---
-#  - name: Init
-#    become: yes
-#    hosts: 
-#      - web_servers
-#      - db_servers
-#    roles:
-#      - init
+  - name: Init
+    hosts: 
+      - web_servers
+      - db_servers
+    become: yes
+    roles:
+      - init
 
-#  - name: Database server
-#    become: yes
-#    hosts: 
-#      - db_servers
-#    roles:
-#      - mysql
+  - name: Database server
+    hosts: 
+      - db_servers
+    become: yes
+    roles:
+      - mysql
 
   - name: Web server
-    become: yes
     hosts: 
     - web_servers
+    become: yes
     roles:
       - users
       - agama

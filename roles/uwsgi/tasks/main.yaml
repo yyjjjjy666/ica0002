@@ -5,14 +5,15 @@
         - uwsgi
         - uwsgi-plugin-python3
 
-  - name: Start service
+  - name: Start uwsgi service
     service:
       name: uwsgi
       state: started
       enabled: yes
 
   - name: Add the configuration agama for agama
-    copy:
+    template:
       src: agama.ini
       dest: /etc/uwsgi/apps-enabled/agama.ini
-    notify: Restart uwsgi
+    notify: Restart uwsgi service
+    
