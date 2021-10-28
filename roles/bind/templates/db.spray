@@ -1,0 +1,14 @@
+$TTL	604800
+spray.gel.	IN	SOA	vm1.spray.gel. daniel.spray.gel. (
+			      2		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+{% for vm in groups['dns_servers'] %}
+spray.gel.	IN	NS	{{ vm }}
+{% endfor %}
+{% for vm in groups['all'] %}
+{{ vm }} IN A {{hostvars[vm]['ansible_default_ipv4']['address']}}
+{% endfor %}

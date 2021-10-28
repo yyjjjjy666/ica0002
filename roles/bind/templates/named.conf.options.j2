@@ -1,0 +1,13 @@
+acl lan { 
+    192.168.42.0/24; 127.0.0.0/8; (jinja code)
+};
+options {
+    directory "/var/cache/bind";
+    forwarders {
+        jinja code;
+    };
+    allow-query { 
+        lan; 
+    };
+    dnssec-validation no;
+};

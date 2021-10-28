@@ -1,0 +1,7 @@
+---
+  - name: DNS server
+    hosts: 
+      - dns_servers
+    become: yes
+    roles: 
+      - bind
