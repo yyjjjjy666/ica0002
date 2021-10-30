@@ -1,11 +1,12 @@
 acl lan { 
-    192.168.42.0/24; 127.0.0.0/8; (jinja code)
+    {{ local_network }}; {{ localhost }}; 
 };
 options {
-    directory "/var/cache/bind";
+    directory "/var/lib/bind";
     forwarders {
-        jinja code;
-    };
+    {% for dns in dns_forwarders %}
+    {{ dns }};
+    {% endfor %}};
     allow-query { 
         lan; 
     };

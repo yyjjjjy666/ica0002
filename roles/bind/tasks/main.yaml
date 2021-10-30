@@ -4,19 +4,26 @@
       name: bind9
       state: latest
 
-  - name: 
+  - name: Start service bind9
+    service:
+      name: bind9
+      state: started
+
+  - name: named.conf.options
     template: 
-      src: named.cond.options.j2
+      src: named.conf.options.j2
       dest: /etc/bind/named.conf.options
     notify: restart bind
 
-  - name:
+  - name: named.conf.local
     template: 
-      src: db.gel
-      dest: /var/cache/bind/db.spray
-
-  - name: 
-    template: 
-      src: named.cond.local.j2
+      src: named.conf.local.j2
       dest: /etc/bind/named.conf.local
     notify: restart bind
+
+  - name: db.spray
+    template: 
+      src: db.spray.j2
+      dest: /var/lib/bind/db.spray
+    notify: restart bind
+    
