@@ -16,10 +16,9 @@
 
   - name: Web server
     hosts: 
-    - web_servers
+      - web_servers
     become: yes
     roles:
-      - users
       - agama
       - uwsgi
       - nginx
