@@ -1,4 +1,4 @@
 zone "{{ domain_name }}" {
     type primary;
-    file "/var/lib/bind/db.spray";
+    file "/var/lib/bind/db.{{ domain }}";
 };

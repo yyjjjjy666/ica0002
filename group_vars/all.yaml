@@ -19,6 +19,7 @@ local_network: 192.168.42.0/24
 localhost: 127.0.0.0/8
 
 domain_name: spray.gel
+domain: spray
 
 vm1: yyjjjjy666-1
 vm2: yyjjjjy666-2

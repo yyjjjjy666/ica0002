@@ -3,10 +3,9 @@
     apt:
         name: nginx
         state: latest
-        update_cache: yes
 
   - name: Copy config to location
-    copy:
+    template:
       src: default
       dest: /etc/nginx/sites-enabled/default
     notify: Restart nginx service

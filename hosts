@@ -1,5 +1,5 @@
-yyjjjjy666-1  ansible_host=193.40.156.86 ansible_port=17522 ansible_user=ubuntu
-yyjjjjy666-2  ansible_host=193.40.156.86 ansible_port=12022 ansible_user=ubuntu
+yyjjjjy666-1  ansible_port=17522
+yyjjjjy666-2  ansible_port=12022
 
 [web_servers]
 yyjjjjy666-1
@@ -9,3 +9,10 @@ yyjjjjy666-2
 
 [dns_servers]
 yyjjjjy666-2
+
+[prometheus]
+yyjjjjy666-1
+
+[all:vars]
+ansible_host=193.40.156.86
+ansible_user=ubuntu

@@ -46,3 +46,9 @@
     become: yes
     roles:
       - dns
+
+  - name: Install Prometheus node exporters
+    hosts: all
+    become: yes
+    roles:
+      - node_exporters
