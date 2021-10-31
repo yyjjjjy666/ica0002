@@ -51,4 +51,4 @@
     hosts: all
     become: yes
     roles:
-      - node_exporters
+      - node_exporter
