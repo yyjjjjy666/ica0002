@@ -23,3 +23,7 @@ domain: spray
 
 vm1: yyjjjjy666-1
 vm2: yyjjjjy666-2
+
+public_ip: 193.40.156.86
+ansible_port1: 1922
+ansible_port2: 2922

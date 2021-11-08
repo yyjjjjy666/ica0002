@@ -3,7 +3,6 @@
     apt:
       name: 
         - prometheus-node-exporter
-        - nginx
 
   - name: Enable node exporter service
     service:

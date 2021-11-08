@@ -1,0 +1,5 @@
+---
+  - name: restart mysqld exporter
+    service:
+      name: prometheus-mysqld-exporter
+      state: restarted

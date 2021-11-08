@@ -9,15 +9,15 @@
       src: prometheus.yml.j2
       dest: /etc/prometheus/prometheus.yml
     notify: 
-      - restart prometheus
-      - restart nginx
+      - Restart prometheus service
+      - Restart nginx service
     become: yes
 
   - name: ARGS file
-    copy:
+    template:
       src: prometheus
       dest: /etc/default/prometheus
     notify: 
-      - restart prometheus
-      - restart nginx
+      - Restart prometheus service
+      - Restart nginx service
     become: yes
