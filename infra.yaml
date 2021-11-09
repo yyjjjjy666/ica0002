@@ -1,43 +1,26 @@
 ---
-  - name: Init
-    hosts: 
-      - web_servers
-      - db_servers
-    become: yes
-    roles:
-      - init
-
-  - name: Database server
-    hosts: 
-      - db_servers
-    become: yes
-    roles:
-      - mysql
-
-  - name: Web server
-    hosts: 
-      - web_servers
-    become: yes
-    roles:
-      - agama
-      - uwsgi
-
-  - name: nginx to all VMS
-    hosts: all
-    become: yes
-    roles: 
-      - nginx
-
-  - name: Setup
+  - name: Collect information about all VMs
     hosts: all
     become: yes
     gather_facts: yes
     tasks:
       - setup:
 
-  - name: Bind setup
+  - name: Ansible connection test
+    hosts: all
+    roles:
+      - test_connection
+
+  - name: Apt update all VMs
+    hosts: all 
+    become: yes
+    roles:
+      - init
+
+  - name: Configure DNS Server
     hosts: 
       - dns_servers
+      - bind_exporter
     become: yes
     gather_facts: no
     roles:
@@ -46,11 +29,41 @@
       - debug:
           msg: "{% for vm in groups['all'] %} nameserver {{ hostvars[vm]['ansible_default_ipv4']['address'] }}{% endfor %}"
 
-  - name: DNS server setup
+  - name: DNS resolver
     hosts: all
     become: yes
     roles:
-      - dns
+      - dns_resolve
+    
+  - name: Install and configure Nginx
+    hosts: all
+    become: yes
+    roles: 
+      - nginx
+      - nginx_exporter
+
+  - name: Install and configure prometheus
+    hosts: 
+      - prometheus_server
+    become: yes
+    roles:
+      - prometheus
+
+  - name: Setup DB Server
+    hosts: 
+      - db_servers
+    become: yes
+    roles:
+      - mysql
+      - mysql_exporter
+
+  - name: Setup Web Server
+    hosts: 
+      - web_servers
+    become: yes
+    roles:
+      - agama
+      - uwsgi
 
   - name: Install Prometheus node exporters
     hosts: all
@@ -58,9 +71,18 @@
     roles:
       - node_exporter
 
-  - name: install prometheus
+  - name: Install and configure Prometheus
     hosts: 
       - prometheus_server
     become: yes
     roles:
       - prometheus
+
+  - name: grafana
+    hosts: 
+      - grafana
+    become: yes
+    roles:
+      - grafana
+    tags:
+      - g
