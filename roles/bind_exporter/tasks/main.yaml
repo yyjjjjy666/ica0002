@@ -2,6 +2,7 @@
   - name: install bind exporter
     apt:
       name: prometheus-bind-exporter
+      state: latest
 
   - name: enable bind exporter
     service:

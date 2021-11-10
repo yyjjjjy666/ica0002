@@ -8,6 +8,7 @@
     service:
       name: bind9
       state: started
+      enabled: yes
 
   - name: named.conf.options
     template: 
@@ -15,15 +16,15 @@
       dest: /etc/bind/named.conf.options
     notify: restart bind
 
+  - name: db.spray
+    template: 
+      src: db.spray.j2
+      dest: /var/cache/bind/db.spray
+    notify: restart rndc
+
   - name: named.conf.local
     template: 
       src: named.conf.local.j2
       dest: /etc/bind/named.conf.local
-    notify: restart bind
-
-  - name: db.spray
-    template: 
-      src: db.spray.j2
-      dest: /var/lib/bind/db.spray
     notify: restart bind
     

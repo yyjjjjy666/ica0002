@@ -17,10 +17,34 @@
     apt:
       name: grafana
       state: latest
+    notify: reset grafana password
+
+  - name: Start grafana
+    service:
+        name: grafana-server
+        state: started
+        enabled: yes
 
   - name: Reconfigure Grafana
     template:
       src: grafana.ini.j2
       dest: /etc/grafana/grafana.ini
+    notify: restart grafana
+
+  - name: prometheus datasource
+    template:
+      src: sample.yaml.j2
+      dest: /etc/grafana/provisioning/datasources/smaple.yaml
+    notify: restart grafana
+  
+  - name: put template config file for dashboards
+    template:
+      src: dashboard.yaml.j2
+      dest: /etc/grafana/provisioning/dashboards/sample.yaml
+
+  - name: Setup dashboards
+    copy:
+      src: main.json
+      dest: /etc/grafana/provisioning/dashboards/main.json
     notify: restart grafana
     

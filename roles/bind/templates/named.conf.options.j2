@@ -2,7 +2,7 @@ acl lan {
     {{ local_network }}; {{ localhost }}; 
 };
 options {
-    directory "/var/lib/bind";
+    directory "/var/cache/bind";
     forwarders {
     {% for dns in dns_forwarders %}
     {{ dns }};

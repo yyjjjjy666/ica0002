@@ -4,3 +4,8 @@
       name: grafana-server
       state: restarted
       enabled: yes
+
+  - name: reset grafana password
+    shell: |
+      sleep 60
+      grafana-cli admin reset-admin-password {{ grafana_password }}

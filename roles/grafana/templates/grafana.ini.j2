@@ -1,6 +1,6 @@
 [paths]
 [server]
-root_url = http://{{ ansible_host }}:{{ ansible_port - 22 + 80 }}/grafana/
+root_url = http://{{ ansible_host }}:{{ ansible_port + 58 }}/grafana/
 serve_from_sub_path = true
 [database]
 [remote_cache]
@@ -20,7 +20,7 @@ serve_from_sub_path = true
 [auth.okta]
 [auth.generic_oauth]
 [auth.basic]
-[auth.proxy] 
+[auth.proxy]
 [auth.ldap]
 [smtp]
 [emails]
@@ -30,8 +30,6 @@ serve_from_sub_path = true
 [log.syslog]
 [quota]
 [alerting]
-[annotations.dashboard]
-[annotations.api]
 [explore]
 [metrics]
 [metrics.graphite]
@@ -49,4 +47,3 @@ serve_from_sub_path = true
 [plugin.grafana-image-renderer]
 [enterprise]
 [feature_toggles]
-[date_formats]

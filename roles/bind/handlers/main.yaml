@@ -3,3 +3,6 @@
     service: 
       name: bind9
       state: restarted
+
+  - name: restart rndc
+    shell: rndc reload

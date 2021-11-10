@@ -16,3 +16,13 @@
       src: my.cnf.j2
       dest: /var/lib/prometheus/.my.cnf
     notify: restart mysqld exporter
+
+  - name: sleep 10 sec
+    pause:
+      seconds: 10
+
+  - name: Start mysql exporter
+    service:
+      name: prometheus-mysqld-exporter
+      state: started
+      enabled: yes
