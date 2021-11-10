@@ -17,14 +17,21 @@
     roles:
       - init
 
+  - name: Setup DB Server
+    hosts: 
+      - db_servers
+    become: yes
+    roles:
+      - mysql
+
   - name: Configure DNS Server
     hosts: 
       - dns_servers
-      - bind_exporter
     become: yes
     gather_facts: no
     roles:
       - bind
+      - bind_exporter
     tasks:
       - debug:
           msg: "{% for vm in groups['all'] %} nameserver {{ hostvars[vm]['ansible_default_ipv4']['address'] }}{% endfor %}"
@@ -34,7 +41,15 @@
     become: yes
     roles:
       - dns_resolve
-    
+
+  - name: Setup Web Server
+    hosts: 
+      - web_servers
+    become: yes
+    roles:
+      - agama
+      - uwsgi
+
   - name: Install and configure Nginx
     hosts: all
     become: yes
@@ -49,22 +64,6 @@
     roles:
       - prometheus
 
-  - name: Setup DB Server
-    hosts: 
-      - db_servers
-    become: yes
-    roles:
-      - mysql
-      - mysql_exporter
-
-  - name: Setup Web Server
-    hosts: 
-      - web_servers
-    become: yes
-    roles:
-      - agama
-      - uwsgi
-
   - name: Install Prometheus node exporters
     hosts: all
     become: yes
@@ -77,6 +76,13 @@
     become: yes
     roles:
       - prometheus
+
+  - name: Setup DB Server 2
+    hosts: 
+      - db_servers
+    become: yes
+    roles:
+      - mysql_exporter
 
   - name: grafana
     hosts: 

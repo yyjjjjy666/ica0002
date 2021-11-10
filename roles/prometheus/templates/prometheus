@@ -1,1 +1,1 @@
-ARGS="--web.external-url=http://{{ public_ip }}:{{ ansible_port1 - 22 + 80 }}/prometheus"
+ARGS="--web.external-url=http://{{ public_ip }}:{{ ansible_port - 22 + 80 }}/prometheus"
