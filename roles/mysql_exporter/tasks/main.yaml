@@ -3,6 +3,7 @@
     apt:
       name: prometheus-mysqld-exporter
       state: latest
+    #register: prom_exporter_installed
 
   - name: Create MySQL user exporter
     community.mysql.mysql_user:
@@ -20,6 +21,7 @@
   - name: sleep 10 sec
     pause:
       seconds: 10
+    #when: prom_exporter_installed.changed
 
   - name: Start mysql exporter
     service:
