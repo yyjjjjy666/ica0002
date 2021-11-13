@@ -26,7 +26,7 @@
     "liveNow": false,
     "panels": [
       {
-        "datasource": null,
+        "datasource": "Prometheus-1",
         "fieldConfig": {
           "defaults": {
             "color": {
@@ -105,7 +105,7 @@
         "type": "stat"
       },
       {
-        "datasource": null,
+        "datasource": "Prometheus-1",
         "fieldConfig": {
           "defaults": {
             "color": {
@@ -184,7 +184,7 @@
         "type": "stat"
       },
       {
-        "datasource": null,
+        "datasource": "Prometheus-1",
         "fieldConfig": {
           "defaults": {
             "color": {
@@ -267,7 +267,7 @@
         "bars": false,
         "dashLength": 10,
         "dashes": false,
-        "datasource": null,
+        "datasource": "Prometheus-1",
         "fill": 1,
         "fillGradient": 0,
         "gridPos": {
@@ -357,7 +357,7 @@
         "bars": false,
         "dashLength": 10,
         "dashes": false,
-        "datasource": null,
+        "datasource": "Prometheus-1",
         "fieldConfig": {
           "defaults": {
             "unit": "decbytes"
@@ -465,6 +465,6 @@
     "timezone": "",
     "title": "Main",
     "uid": "xWQ-CeD7z",
-    "version": 1
+    "version": 3
   }
   
