@@ -73,3 +73,24 @@
     become: yes
     roles:
       - dns_resolve
+
+
+  - name: install InfluxDB and telegraf
+    hosts: 
+      - influxdb
+    become: yes
+    roles:
+      - influxdb
+
+  - name: configure rsyslog
+    hosts: all
+    become: yes
+    roles:
+      - rsyslog
+
+  - name: transfer and setup pinger sciprt
+    hosts: 
+      - pinger
+    become: yes
+    roles:
+      - pinger
