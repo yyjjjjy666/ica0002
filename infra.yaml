@@ -81,6 +81,7 @@
     become: yes
     roles:
       - influxdb
+      - influxdb_exporter
 
   - name: configure rsyslog
     hosts: all

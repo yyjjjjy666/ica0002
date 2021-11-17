@@ -1,0 +1,11 @@
+---
+  - name: download influxdb stats exporter
+    get_url:
+      url: https://github.com/carlpett/influxdb_stats_exporter/archive/refs/tags/v0.1.1.tar.gz
+      dest: /usr/local/bin/influxdb_stats_exporter-0.1.1.tar.gz
+
+  - name: Unarchive a file with extra options
+    ansible.builtin.unarchive:
+      src: /usr/local/bin/influxdb_stats_exporter-0.1.1.tar.gz
+      dest: /usr/local/bin
+      remote_src: yes
