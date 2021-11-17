@@ -1,11 +1,27 @@
 ---
   - name: download influxdb stats exporter
     get_url:
-      url: https://github.com/carlpett/influxdb_stats_exporter/archive/refs/tags/v0.1.1.tar.gz
-      dest: /usr/local/bin/influxdb_stats_exporter-0.1.1.tar.gz
+      url: https://github.com/carlpett/influxdb_stats_exporter/releases/download/v0.1.1/influx_stats_exporter_linux_amd64
+      dest: /usr/local/bin/influx_stats_exporter_linux_amd64
 
-  - name: Unarchive a file with extra options
-    ansible.builtin.unarchive:
-      src: /usr/local/bin/influxdb_stats_exporter-0.1.1.tar.gz
-      dest: /usr/local/bin
-      remote_src: yes
+  - name: change permissions for file
+    ansible.builtin.file:
+      path: /usr/local/bin/influx_stats_exporter_linux_amd64
+      owner: prometheus
+      mode: '1777'
+
+  - name: put args file
+    template:
+      src: prometheus-influxdb-stats-exporter.j2
+      dest: /etc/default/prometheus-influxdb-stats-exporter
+
+  - name: put service file
+    template:
+      src: prometheus-influxdb-stats-exporter.service.j2
+      dest: /etc/systemd/system/prometheus-influxdb-stats-exporter.service
+  
+  - name: start service
+    service: 
+      name: prometheus-influxdb-stats-exporter
+      state: started
+      enabled: yes
