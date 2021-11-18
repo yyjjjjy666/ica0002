@@ -1,31 +1,35 @@
 ---
-  - name: Install InfluxDB and InfluxDB client
+  - name: Add apt key for influxDB
+    ansible.builtin.apt_key:
+      url: https://repos.influxdata.com/influxdb.key
+
+  - name: add specified repository into sources list
+    ansible.builtin.apt_repository:
+      repo: deb https://repos.influxdata.com/ubuntu focal stable
+
+  - name: install influxdb and telegraf
     apt:
       name: 
         - influxdb
-        - influxdb-client
-      state: latest
+        - telegraf
 
-  - name: Download Telegraf package
-    get_url:
-      url: https://dl.influxdata.com/telegraf/releases/telegraf_1.16.0-1_amd64.deb
-      dest: /opt/telegraf_1.16.0-1_amd64.deb
-
-  - name: Install Telegraf
-    apt:
-      deb: /opt/telegraf_1.16.0-1_amd64.deb
-
-  - name: Reconfigure Telegraf
+  - name: influxdb configuration
     template:
-      src: telegraf.conf.j2
-      dest: /etc/telegraf/telegraf.conf
-    notify: restart telegraf
+      src: influxdb.conf.j2
+      dest: /etc/influxdb/influxdb.conf
+    notify: restart influxdb
 
   - name: Start service influxdb, if not started
     service:
       name: influxdb
       state: started
       enabled: yes
+
+  - name: Reconfigure Telegraf
+    template:
+      src: telegraf.conf.j2
+      dest: /etc/telegraf/telegraf.conf
+    notify: restart telegraf
 
   - name: Start service telegraf, if not started
     service:

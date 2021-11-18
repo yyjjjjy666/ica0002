@@ -33,8 +33,20 @@
 
   - name: prometheus datasource
     template:
-      src: sample.yaml.j2
-      dest: /etc/grafana/provisioning/datasources/smaple.yaml
+      src: prometheus.yaml.j2
+      dest: /etc/grafana/provisioning/datasources/prometheus.yaml
+    notify: restart grafana
+
+  - name: influxdb datasource
+    template:
+      src: influx.yaml.j2
+      dest: /etc/grafana/provisioning/datasources/influx.yaml
+    notify: restart grafana
+
+  - name: telegraf datasource
+    template:
+      src: telegraf.yaml.j2
+      dest: /etc/grafana/provisioning/datasources/telegraf.yaml
     notify: restart grafana
   
   - name: put template config file for dashboards

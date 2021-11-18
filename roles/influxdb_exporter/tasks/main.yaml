@@ -2,26 +2,19 @@
   - name: download influxdb stats exporter
     get_url:
       url: https://github.com/carlpett/influxdb_stats_exporter/releases/download/v0.1.1/influx_stats_exporter_linux_amd64
-      dest: /usr/local/bin/influx_stats_exporter_linux_amd64
-
-  - name: change permissions for file
-    ansible.builtin.file:
-      path: /usr/local/bin/influx_stats_exporter_linux_amd64
-      owner: prometheus
-      mode: '1777'
-
-  - name: put args file
-    template:
-      src: prometheus-influxdb-stats-exporter.j2
-      dest: /etc/default/prometheus-influxdb-stats-exporter
+      dest: /usr/local/bin/influxdb_stats_exporter
+      mode: 0555
 
   - name: put service file
     template:
       src: prometheus-influxdb-stats-exporter.service.j2
       dest: /etc/systemd/system/prometheus-influxdb-stats-exporter.service
+    notify:
+      - reload systemd
+      - restart influxdb exporter
   
   - name: start service
     service: 
-      name: prometheus-influxdb-stats-exporter
+      name: prometheus-influxdb-stats-exporter.service
       state: started
       enabled: yes

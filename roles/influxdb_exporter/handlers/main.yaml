@@ -1,0 +1,8 @@
+---
+  - name: reload systemd
+    ansible.builtin.shell: systemctl daemon-reload
+
+  - name: restart influxdb exporter
+    service:
+      name: prometheus-influxdb-stats-exporter.service
+      state: restarted

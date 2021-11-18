@@ -1,12 +1,11 @@
 [Unit]
 Description=InfluxDB stats
 Documentation=https://github.com/carlpett/influxdb_stats_exporter
-After=network.target influxdb.service
+After=network.target
 
 [Service]
 User=prometheus
-EnvironmentFile=-/etc/default/prometheus-influxdb-stats-exporter
-ExecStart=/usr/local/bin/influx_stats_exporter_linux_amd64 $ARGS
+ExecStart=/usr/local/bin/influxdb_stats_exporter
 
 [Install]
 WantedBy=multi-user.target

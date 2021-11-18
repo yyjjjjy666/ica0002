@@ -46,8 +46,8 @@ server {
     {% endif %}
 
     {% if inventory_hostname in groups['influxdb'] %}
-        location /influxdb {
-            proxy_pass http://localhost:9424;
+        location /influxdb-metrics {
+            proxy_pass http://localhost:9424/metrics;
     }
     {% endif %}
 }
