@@ -23,12 +23,14 @@
     template:
       src: pinger.conf.j2
       dest: /etc/pinger/pinger.conf
+    notify: restart pinger
 
   - name: Place script to /usr/local/bin/pinger
     template:
       src: pinger.sh.j2
       dest: /usr/local/bin/pinger
       mode: '0777'
+    notify: restart pinger
 
   - name: Create pinger service
     template:
