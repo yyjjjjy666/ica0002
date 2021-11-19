@@ -18,6 +18,8 @@
     become: yes
     roles:
       - mysql
+      - mysql_exporter
+      - mysql_backup
 
   - name: Setup Web Server
     hosts: 
@@ -55,13 +57,6 @@
     roles:
       - prometheus
 
-  - name: Setup DB Server 2
-    hosts: 
-      - db_servers
-    become: yes
-    roles:
-      - mysql_exporter
-
   - name: grafana
     hosts: 
       - grafana
@@ -83,6 +78,7 @@
     roles:
       - influxdb
       - influxdb_exporter
+      - influxdb_backup
 
   - name: configure rsyslog
     hosts: all

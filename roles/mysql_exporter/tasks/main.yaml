@@ -3,7 +3,6 @@
     apt:
       name: prometheus-mysqld-exporter
       state: latest
-    #register: prom_exporter_installed
 
   - name: Create MySQL user exporter
     community.mysql.mysql_user:
