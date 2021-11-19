@@ -59,4 +59,10 @@
       src: main.json
       dest: /etc/grafana/provisioning/dashboards/main.json
     notify: restart grafana
+
+  - name: Setup dashboards No2
+    copy:
+      src: syslog.json
+      dest: /etc/grafana/provisioning/dashboards/syslog.json
+    notify: restart grafana
     
