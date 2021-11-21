@@ -11,17 +11,22 @@
       path: /home/backup/.ssh
       state: directory
       owner: backup
-      mode: '0755'
+      group: backup
+      mode: '0644'
 
   - name: Create a directory if it does not exist
     ansible.builtin.file:
       path: /home/backup/restore
       state: directory
       owner: backup
-      mode: '0755'
+      group: backup
+      mode: '0644'
 
   - name: put known hosts
     template:
+      owner: root
+      group: root
+      mode: '0644'
       src: known_hosts.j2
       dest: /home/backup/.ssh/known_hosts
 

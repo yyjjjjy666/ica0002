@@ -10,6 +10,7 @@
     community.mysql.mysql_user:
       name: "{{ mysql_backup_user }}"
       password: "{{ mysql_backup_password }}"
+      host: "%"
       priv: "agama.*:LOCK TABLES,SELECT"
       login_unix_socket: /var/run/mysqld/mysqld.sock
 
@@ -19,3 +20,8 @@
       dest: /home/backup/.my.cnf
       mode: '0700'
     notify: Restart mysql service
+
+  - name: put conf file
+    template:
+      src: mysql-backup.j2
+      dest: /etc/cron.d/mysql-backup

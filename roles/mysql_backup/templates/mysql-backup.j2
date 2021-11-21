@@ -1,0 +1,3 @@
+50 * * * *  backup mysqldump agama > /home/backup/mysql/agama.sql
+35 0 28 * *  backup  duplicity --no-encryption full /home/backup/mysql/ rsync://yyjjjjy666@backup.{{ domain_name }}//home/yyjjjjy666/
+35 0 * * *  backup  duplicity --no-encryption incremental /home/backup/mysql/ rsync://yyjjjjy666@backup.{{ domain_name }}//home/yyjjjjy666/

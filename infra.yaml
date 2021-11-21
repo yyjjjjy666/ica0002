@@ -18,7 +18,6 @@
     become: yes
     roles:
       - mysql
-      - mysql_exporter
       - mysql_backup
 
   - name: Setup Web Server
@@ -57,6 +56,13 @@
     roles:
       - prometheus
 
+  - name: Setup DB Server backup
+    hosts: 
+      - db_servers
+    become: yes
+    roles:
+      - mysql_exporter
+
   - name: grafana
     hosts: 
       - grafana
@@ -69,7 +75,6 @@
     become: yes
     roles:
       - dns_resolve
-
 
   - name: install InfluxDB and telegraf
     hosts: 
