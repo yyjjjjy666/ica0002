@@ -28,13 +28,6 @@
       - agama
       - uwsgi
 
-  - name: Install and configure Nginx
-    hosts: all
-    become: yes
-    roles: 
-      - nginx
-      - nginx_exporter
-
   - name: Configure DNS Server
     hosts: 
       - dns_servers
@@ -62,6 +55,13 @@
     become: yes
     roles:
       - mysql_exporter
+
+  - name: Install and configure Nginx
+    hosts: all
+    become: yes
+    roles: 
+      - nginx
+      - nginx_exporter
 
   - name: grafana
     hosts: 
