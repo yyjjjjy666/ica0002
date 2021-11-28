@@ -1,24 +1,15 @@
 ---
-  - name: Collect information about all VMs
-    hosts: all
-    become: yes
-    tasks:
-      - setup:
+#  - name: Collect information about all VMs
+#    hosts: all
+#    become: yes
+#    tasks:
+#      - setup:
 
   - name: Init
     hosts: all 
     become: yes
     roles:
       - init
-      - backup
-
-  - name: Setup DB Server
-    hosts: 
-      - db_servers
-    become: yes
-    roles:
-      - mysql
-      - mysql_backup
 
   - name: Setup Web Server
     hosts: 
@@ -28,6 +19,20 @@
       - agama
       - uwsgi
 
+  - name: Setup DB Server
+    hosts: 
+      - db_servers
+    become: yes
+    roles:
+      - mysql
+
+  - name: install InfluxDB and telegraf
+    hosts: 
+      - influxdb
+    become: yes
+    roles:
+      - influxdb
+
   - name: Configure DNS Server
     hosts: 
       - dns_servers
@@ -36,12 +41,6 @@
       - bind
       - bind_exporter
 
-  - name: Install node exporters
-    hosts: all
-    become: yes
-    roles:
-      - node_exporter
-
   - name: Install and configure prometheus
     hosts: 
       - prometheus_server
@@ -49,19 +48,16 @@
     roles:
       - prometheus
 
-  - name: Setup DB Server backup
-    hosts: 
-      - db_servers
+  - name: All machines
+    hosts: all 
     become: yes
     roles:
-      - mysql_exporter
-
-  - name: Install and configure Nginx
-    hosts: all
-    become: yes
-    roles: 
+      - dns_resolve
+      - backup
       - nginx
       - nginx_exporter
+      - rsyslog
+      - node_exporter
 
   - name: grafana
     hosts: 
@@ -70,30 +66,25 @@
     roles:
       - grafana
 
-  - name: DNS resolver
-    hosts: all
-    become: yes
-    roles:
-      - dns_resolve
-
-  - name: install InfluxDB and telegraf
-    hosts: 
-      - influxdb
-    become: yes
-    roles:
-      - influxdb
-      - influxdb_exporter
-      - influxdb_backup
-
-  - name: configure rsyslog
-    hosts: all
-    become: yes
-    roles:
-      - rsyslog
-
   - name: transfer and setup pinger sciprt
     hosts: 
       - pinger
     become: yes
     roles:
       - pinger
+
+  - name: Setup DB Server backup
+    hosts: 
+      - db_servers
+    become: yes
+    roles:
+      - mysql_exporter
+      - mysql_backup
+
+  - name: configure influx exp and backup
+    hosts: 
+      - influxdb
+    become: yes
+    roles:
+      - influxdb_exporter
+      - influxdb_backup
