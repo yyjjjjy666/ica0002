@@ -1,10 +1,11 @@
-yyjjjjy666-1  ansible_host=193.40.156.86    ansible_user=ubuntu ansible_port=5022
-yyjjjjy666-2  ansible_host=193.40.156.86    ansible_user=ubuntu ansible_port=5422
+yyjjjjy666-1  ansible_host=193.40.156.86    ansible_user=ubuntu ansible_port=6722
+yyjjjjy666-2  ansible_host=193.40.156.86    ansible_user=ubuntu ansible_port=16522
 
 [web_servers]
 yyjjjjy666-1
 
 [db_servers]
+yyjjjjy666-1
 yyjjjjy666-2
 
 [dns_servers]

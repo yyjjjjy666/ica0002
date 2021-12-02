@@ -1,10 +1,4 @@
 ---
-#  - name: Collect information about all VMs
-#    hosts: all
-#    become: yes
-#    tasks:
-#      - setup:
-
   - name: Init
     hosts: all 
     become: yes

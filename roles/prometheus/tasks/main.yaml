@@ -10,7 +10,6 @@
       dest: /etc/prometheus/prometheus.yml
     notify: 
       - Restart prometheus service
-      - Restart nginx service
     become: yes
 
   - name: ARGS file
@@ -19,5 +18,4 @@
       dest: /etc/default/prometheus
     notify: 
       - Restart prometheus service
-      - Restart nginx service
     become: yes
