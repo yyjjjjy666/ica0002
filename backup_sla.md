@@ -3,7 +3,7 @@ Backup service covers only next services:
 _Database_ services - **MySQL** and **InfluxDB**. (Those services conatin user data, which can't be restored by ansible playbook).
 
 # RPO (recovery point objective)
-text
+Our backup method is incremental due to the high expense. The incremental backup system restores data prior to the point where it was lost.
 
 # Versioning and retention
 2 types of backup: **full** and **incremental**.

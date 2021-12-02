@@ -17,6 +17,7 @@ dns_forwarders:
 
 local_network: 192.168.42.0/24
 localhost: 127.0.0.0/8
+docker_network: 172.17.0.0/16
 
 domain_name: spray.gel
 domain: spray
@@ -66,3 +67,6 @@ mysql_replication_password: !vault |
           3237
 
 node_id: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'].split('.')[-1] }}"
+
+grafana_port: 3001
+agama_port: 8001

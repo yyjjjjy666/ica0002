@@ -1,5 +1,5 @@
 acl lan { 
-    {{ local_network }}; {{ localhost }}; 
+    {{ local_network }}; {{ localhost }}; {{ docker_network }};
 };
 options {
     directory "/var/cache/bind";
