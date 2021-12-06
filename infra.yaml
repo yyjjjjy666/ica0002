@@ -4,14 +4,7 @@
     become: yes
     roles:
       - init
-
-  - name: Setup Web Server
-    hosts: 
-      - web_servers
-    become: yes
-    roles:
-      - agama
-      - uwsgi
+      - backup
 
   - name: Setup DB Server
     hosts: 
@@ -19,13 +12,7 @@
     become: yes
     roles:
       - mysql
-
-  - name: install InfluxDB and telegraf
-    hosts: 
-      - influxdb
-    become: yes
-    roles:
-      - influxdb
+      - mysql_backup
 
   - name: Configure DNS Server
     hosts: 
@@ -35,6 +22,37 @@
       - bind
       - bind_exporter
 
+  - name: dns resolver
+    hosts: all
+    become: yes
+    roles:
+      - dns_resolve
+
+  - name: docker
+    hosts: all 
+    become: yes
+    roles:
+      - docker
+
+  - name: All machines
+    hosts: all 
+    become: yes
+    roles:
+      - agama
+
+  - name: All machines
+    hosts: all 
+    become: yes
+    roles:
+      - nginx
+      - nginx_exporter
+
+  - name: All machines
+    hosts: all 
+    become: yes
+    roles:
+      - node_exporter
+
   - name: Install and configure prometheus
     hosts: 
       - prometheus_server
@@ -42,17 +60,12 @@
     roles:
       - prometheus
 
-  - name: All machines
-    hosts: all 
+  - name: mysql exporter
+    hosts: 
+      - db_servers
     become: yes
     roles:
-      - docker
-      - dns_resolve
-      - backup
-      - nginx
-      - nginx_exporter
-      - rsyslog
-      - node_exporter
+      - mysql_exporter
 
   - name: grafana
     hosts: 
@@ -61,6 +74,14 @@
     roles:
       - grafana
 
+  - name: configure influx and backup
+    hosts: 
+      - influxdb
+    become: yes
+    roles:
+      - influxdb
+      - influxdb_backup
+
   - name: transfer and setup pinger sciprt
     hosts: 
       - pinger
@@ -68,18 +89,15 @@
     roles:
       - pinger
 
-  - name: Setup DB Server backup
-    hosts: 
-      - db_servers
+  - name: transfer and setup pinger sciprt
+    hosts: all
     become: yes
     roles:
-      - mysql_exporter
-      - mysql_backup
+      - rsyslog
 
-  - name: configure influx exp and backup
+  - name: configure influx and backup
     hosts: 
       - influxdb
     become: yes
     roles:
       - influxdb_exporter
-      - influxdb_backup
