@@ -9,8 +9,15 @@ yyjjjjy666-2
 yyjjjjy666-1
 yyjjjjy666-2
 
-[dns_servers]
+[dns_servers:children]
+dns_master
+dns_slaves
+
+[dns_master]
 yyjjjjy666-2
+
+[dns_slaves]
+yyjjjjy666-1
 
 [prometheus_server]
 yyjjjjy666-1

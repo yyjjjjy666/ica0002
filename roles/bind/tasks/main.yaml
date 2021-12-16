@@ -1,7 +1,9 @@
 ---
   - name: install bind9
     apt:
-      name: bind9
+      name: 
+        - bind9
+        - python3-dnspython
       state: latest
 
   - name: Start service bind9
@@ -14,12 +16,23 @@
     template: 
       src: named.conf.options.j2
       dest: /etc/bind/named.conf.options
+    no_log: true
     notify: restart bind
 
   - name: db.spray
+    when: inventory_hostname in groups['dns_master']
     template: 
       src: db.spray.j2
-      dest: /var/cache/bind/db.spray
+      dest: /var/cache/bind/db.spray.gel
+      force: no
+    notify: restart rndc
+
+  - name: db reversed conf
+    when: inventory_hostname in groups['dns_master']
+    template:
+      src: db.spray.reversed.j2
+      dest: /var/cache/bind/db.spray.reversed
+      force: no
     notify: restart rndc
 
   - name: named.conf.local
@@ -27,4 +40,32 @@
       src: named.conf.local.j2
       dest: /etc/bind/named.conf.local
     notify: restart bind
-    
+
+  - name: Execute handlers
+    meta: flush_handlers
+
+  - name: Add A records
+    when: inventory_hostname == groups['dns_master'][0]
+    community.general.nsupdate:
+      key_name: "dns_update_key"
+      key_algorithm: "hmac-sha256"
+      key_secret: "{{ update_key_secret }}"
+      server: "localhost"
+      zone: "{{ domain_name }}."
+      record: "{{ item.key }}.{{ domain_name }}."
+      type: "A"
+      value: "{{ item.value }}"
+    loop: "{{ a_records | dict2items }}"
+
+  - name: Add CNAME records
+    when: inventory_hostname == groups['dns_master'][0]
+    community.general.nsupdate:
+      key_name: "dns_update_key"
+      key_algorithm: "hmac-sha256"
+      key_secret: "{{ update_key_secret }}"
+      server: "localhost"
+      zone: "{{ domain_name }}."
+      record: "{{ item.key }}.{{ domain_name }}."
+      type: "CNAME"
+      value: "{{ item.value }}.{{ domain_name }}."
+    loop: "{{ cname_records | dict2items }}"
