@@ -1,5 +1,5 @@
-yyjjjjy666-1  ansible_host=193.40.156.86    ansible_user=ubuntu ansible_port=18422
-yyjjjjy666-2  ansible_host=193.40.156.86    ansible_user=ubuntu ansible_port=5722
+yyjjjjy666-1  ansible_host=193.40.156.86    ansible_user=ubuntu ansible_port=13222
+yyjjjjy666-2  ansible_host=193.40.156.86    ansible_user=ubuntu ansible_port=18522
 
 [web_servers]
 yyjjjjy666-1
@@ -26,3 +26,11 @@ yyjjjjy666-1
 
 [rsyslog]
 yyjjjjy666-1
+
+[keepalived]
+yyjjjjy666-1
+yyjjjjy666-2
+
+[haproxy]
+yyjjjjy666-1
+yyjjjjy666-2

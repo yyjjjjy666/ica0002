@@ -10,8 +10,8 @@
 
   - name: put grafana config
     template:
-        src: grafana.ini.j2
-        dest: /opt/grafana/grafana.ini
+      src: grafana.ini.j2
+      dest: /opt/grafana/grafana.ini
 
   - name: prometheus datasource
     template:
@@ -48,4 +48,5 @@
       image: grafana/grafana
       container_default_behavior: no_defaults
       published_ports: "{{ grafana_port }}:3000"
+      restart_policy: always
       volumes: /opt/grafana:/etc/grafana

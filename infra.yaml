@@ -101,3 +101,18 @@
     become: yes
     roles:
       - influxdb_exporter
+
+  - name: keepalived
+    hosts:
+      - keepalived
+    become: yes
+    roles:
+      - keepalived
+      - keepalived_exporter
+
+  - name: haproxy
+    hosts:
+      - haproxy
+    become: yes
+    roles:
+      - haproxy
