@@ -19,10 +19,10 @@ statistics-channels {
 
 key "dns_transfer_key" {
         algorithm hmac-sha256;
-        secret "{{ transfer_key_secret }}";
+        secret "{{ dns_transfer_key }}";
 };
 
 key "dns_update_key" {
         algorithm hmac-sha256;
-        secret "{{ update_key_secret }}";
+        secret "{{ dns_update_key }}";
 };
