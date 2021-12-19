@@ -1,5 +1,6 @@
-yyjjjjy666-1  ansible_host=193.40.156.86    ansible_user=ubuntu ansible_port=19922
-yyjjjjy666-2  ansible_host=193.40.156.86    ansible_user=ubuntu ansible_port=4622
+yyjjjjy666-1  ansible_host=193.40.156.86    ansible_user=ubuntu ansible_port=7622
+yyjjjjy666-2  ansible_host=193.40.156.86    ansible_user=ubuntu ansible_port=3822
+yyjjjjy666-3  ansible_host=193.40.156.86    ansible_user=ubuntu ansible_port=9522
 
 [web_servers]
 yyjjjjy666-1
@@ -14,24 +15,22 @@ dns_master
 dns_slaves
 
 [dns_master]
-yyjjjjy666-2
+yyjjjjy666-3
 
 [dns_slaves]
 yyjjjjy666-1
-
-[prometheus_server]
-yyjjjjy666-1
-
-[grafana]
 yyjjjjy666-2
 
+[prometheus_server]
+yyjjjjy666-3
+
+[grafana]
+yyjjjjy666-3
+
 [influxdb]
-yyjjjjy666-1
+yyjjjjy666-3
 
 [pinger]
-yyjjjjy666-1
-
-[rsyslog]
 yyjjjjy666-1
 
 [keepalived]

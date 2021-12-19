@@ -25,6 +25,7 @@
       restart_policy: always
       env:
        AGAMA_DATABASE_URI=mysql+pymysql://{{ mysql_user }}:{{ mysql_password }}@{{ mysql_host }}/{{ mysql_database }}
+    no_log: true
 
   - name: install and start agama 2
     community.docker.docker_container:
@@ -35,3 +36,4 @@
       restart_policy: always
       env:
        AGAMA_DATABASE_URI=mysql+pymysql://{{ mysql_user }}:{{ mysql_password }}@{{ mysql_host }}/{{ mysql_database }}
+    no_log: true

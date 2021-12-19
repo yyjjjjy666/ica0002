@@ -1,0 +1,1686 @@
+E 20 dets  2021 00:22:25 EET
++ hostname
+administrator-VirtualBox
++ ansible-playbook infra.yaml --diff
+
+PLAY [Init] ********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+TASK [init : Update APT cache] *************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+
+TASK [init : set hostname] *****************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+TASK [backup : create user backup] *********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [backup : Create a directory if it does not exist] ************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [backup : put known hosts] ************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [backup : install duplicity] **********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+
+PLAY [Setup DB Server] *********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql : Install MySQL server] ********************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [mysql : Start mysql service] *********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql : Copy override to location] ***************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql : Create MySQL database] *******************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql : Create MySQL user] ***********************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [mysql : Create replication MySQL user] ***********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql : read only mode on replica server] ********************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [mysql_backup : Create a directory if it does not exist] ******************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_backup : Create MySQL user backup] *********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_backup : cnf file] *************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_backup : put conf file] ********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_backup : Ensure that cron file is created] *************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+PLAY [Configure DNS Server] ****************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [bind : install bind9] ****************************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [bind : Start service bind9] **********************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [bind : named.conf.options] ***********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+
+TASK [bind : db.spray] *********************************************************
+skipping: [yyjjjjy666-1]
+skipping: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [bind : db reversed conf] *************************************************
+skipping: [yyjjjjy666-1]
+skipping: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [bind : named.conf.local] *************************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [bind : Execute handlers] *************************************************
+
+TASK [bind : Add A records] ****************************************************
+skipping: [yyjjjjy666-1] => (item={'key': 'backup', 'value': '192.168.42.156'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'backup', 'value': '192.168.42.156'}) 
+ok: [yyjjjjy666-3] => (item={'key': 'backup', 'value': '192.168.42.156'})
+
+TASK [bind : Add CNAME records] ************************************************
+skipping: [yyjjjjy666-1] => (item={'key': 'grafana', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'influxdb', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'lb1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'lb2', 'value': 'yyjjjjy666-2'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'grafana', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'mysql1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'influxdb', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'mysql2', 'value': 'yyjjjjy666-2'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'lb1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'lb2', 'value': 'yyjjjjy666-2'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'ns1', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'ns2', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'mysql1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'prometheus', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'mysql2', 'value': 'yyjjjjy666-2'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'web1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'ns1', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'web2', 'value': 'yyjjjjy666-2'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'ns2', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'prometheus', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'web1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'web2', 'value': 'yyjjjjy666-2'}) 
+ok: [yyjjjjy666-3] => (item={'key': 'grafana', 'value': 'yyjjjjy666-3'})
+ok: [yyjjjjy666-3] => (item={'key': 'influxdb', 'value': 'yyjjjjy666-3'})
+ok: [yyjjjjy666-3] => (item={'key': 'lb1', 'value': 'yyjjjjy666-1'})
+ok: [yyjjjjy666-3] => (item={'key': 'lb2', 'value': 'yyjjjjy666-2'})
+ok: [yyjjjjy666-3] => (item={'key': 'mysql1', 'value': 'yyjjjjy666-1'})
+ok: [yyjjjjy666-3] => (item={'key': 'mysql2', 'value': 'yyjjjjy666-2'})
+ok: [yyjjjjy666-3] => (item={'key': 'ns1', 'value': 'yyjjjjy666-3'})
+ok: [yyjjjjy666-3] => (item={'key': 'ns2', 'value': 'yyjjjjy666-1'})
+ok: [yyjjjjy666-3] => (item={'key': 'prometheus', 'value': 'yyjjjjy666-3'})
+ok: [yyjjjjy666-3] => (item={'key': 'web1', 'value': 'yyjjjjy666-1'})
+ok: [yyjjjjy666-3] => (item={'key': 'web2', 'value': 'yyjjjjy666-2'})
+
+TASK [bind_exporter : install bind exporter] ***********************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+
+TASK [bind_exporter : enable bind exporter] ************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+PLAY [dns resolver] ************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [dns_resolve : disable systemd-resolved] **********************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+TASK [dns_resolve : resolv.conf] ***********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+PLAY [docker] ******************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [docker : install docker] *************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [docker : start docker service] *******************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+PLAY [All machines] ************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [agama : create dir for agama] ********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [agama : install agama] ***************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+
+TASK [agama : build docker image] **********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [agama : install and start agama] *****************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+TASK [agama : install and start agama 2] ***************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+PLAY [All machines] ************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [nginx : Install nginx] ***************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [nginx : Start nginx service] *********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [nginx : Copy config to location] *****************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [nginx_exporter : Download Nginx exporter] ********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [nginx_exporter : start nginx-exporter] ***********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [nginx_exporter : copy exporter config] ***********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+PLAY [All machines] ************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+TASK [node_exporter : Exporter packages] ***************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [node_exporter : Enable node exporter service] ****************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+PLAY [Install and configure prometheus] ****************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-3]
+
+TASK [prometheus : Install Prometheus] *****************************************
+ok: [yyjjjjy666-3]
+
+TASK [prometheus : Configure Prometheus] ***************************************
+ok: [yyjjjjy666-3]
+
+TASK [prometheus : ARGS file] **************************************************
+ok: [yyjjjjy666-3]
+
+PLAY [mysql exporter] **********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_exporter : install mysqld exporter] ********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_exporter : Create MySQL user exporter] *****************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_exporter : put template] *******************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_exporter : sleep 10 sec] *******************************************
+skipping: [yyjjjjy666-1]
+
+TASK [mysql_exporter : put template] *******************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_exporter : sleep 10 sec] *******************************************
+skipping: [yyjjjjy666-1]
+
+TASK [mysql_exporter : Start mysql exporter] ***********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+PLAY [grafana] *****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-3]
+
+TASK [grafana : create grafana directories] ************************************
+ok: [yyjjjjy666-3] => (item=dashboards)
+ok: [yyjjjjy666-3] => (item=datasources)
+
+TASK [grafana : put grafana config] ********************************************
+ok: [yyjjjjy666-3]
+
+TASK [grafana : prometheus datasource] *****************************************
+ok: [yyjjjjy666-3]
+
+TASK [grafana : influxdb datasource] *******************************************
+--- before: /opt/grafana/provisioning/datasources/influx.yaml
++++ after: /home/administrator/.ansible/tmp/ansible-local-17029jcczstvu/tmp2iroaipy/influx.yaml.j2
+@@ -6,7 +6,7 @@
+     access: proxy
+     database: latency
+     user:
+-    url: http://yyjjjjy666-1:8086
++    url: http://yyjjjjy666-3:8086
+     jsonData:
+       httpMode: GET
+     secureJsonData:
+
+changed: [yyjjjjy666-3]
+
+TASK [grafana : telegraf datasource] *******************************************
+ok: [yyjjjjy666-3]
+
+TASK [grafana : put dashboard.yaml to dashboards] ******************************
+ok: [yyjjjjy666-3]
+
+TASK [grafana : put dashboard files to dashboards] *****************************
+ok: [yyjjjjy666-3] => (item=main.json)
+ok: [yyjjjjy666-3] => (item=mysql.json)
+ok: [yyjjjjy666-3] => (item=syslog.json)
+
+TASK [grafana : install and start the grafana in the docker container] *********
+ok: [yyjjjjy666-3]
+
+PLAY [configure influx and backup] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : Add apt key for influxDB] *************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : add specified repository into sources list] *******************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : install influxdb and telegraf] ********************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : influxdb configuration] ***************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : Start service influxdb, if not started] ***********************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : Reconfigure Telegraf] *****************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : Start service telegraf, if not started] ***********************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb_backup : Create a directory if it does not exist] ***************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb_backup : put backup template] ***********************************
+ok: [yyjjjjy666-3]
+
+PLAY [transfer and setup pinger sciprt] ****************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Install fping] **************************************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Install curl] ***************************************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Add the user "pinger"] ******************************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Create pinger configuration directory] **************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Create pinger configuration] ************************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Place script to /usr/local/bin/pinger] **************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Create pinger service] ******************************************
+ok: [yyjjjjy666-1]
+
+PLAY [transfer and setup pinger sciprt] ****************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+TASK [rsyslog : Install Rsyslog] ***********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [rsyslog : Reconfigure Rsyslog] *******************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [rsyslog : start rsyslog] *************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+PLAY [configure influx and backup] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb_exporter : download influxdb stats exporter] ********************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb_exporter : put service file] ************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb_exporter : start service] ***************************************
+ok: [yyjjjjy666-3]
+
+PLAY [keepalived] **************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [keepalived : Install keepalived] *****************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [keepalived : creater keepalivescript user] *******************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [keepalived : put keepalived script] **************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [keepalived : put keepalived config] **************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [keepalived : start service keepalived] ***********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [keepalived_exporter : download and unzip archive with exporter] **********
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [keepalived_exporter : copy keepalived exporter] **************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [keepalived_exporter : create service] ************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [keepalived_exporter : start enable keepalived exporter] ******************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+PLAY [haproxy] *****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [haproxy : Install haproxy] ***********************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [haproxy : put haproxy config] ********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [haproxy : Install haproxy exporter] **************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [haproxy : add correct args] **********************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [haproxy : start service haproxy] *****************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [haproxy : start service haproxy exporter] ********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+PLAY RECAP *********************************************************************
+yyjjjjy666-1               : ok=84   changed=0    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+yyjjjjy666-2               : ok=76   changed=0    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+yyjjjjy666-3               : ok=71   changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
++ ansible-playbook infra.yaml --diff
+
+PLAY [Init] ********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+TASK [init : Update APT cache] *************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+TASK [init : set hostname] *****************************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [backup : create user backup] *********************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+
+TASK [backup : Create a directory if it does not exist] ************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [backup : put known hosts] ************************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [backup : install duplicity] **********************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+PLAY [Setup DB Server] *********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [mysql : Install MySQL server] ********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql : Start mysql service] *********************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [mysql : Copy override to location] ***************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [mysql : Create MySQL database] *******************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql : Create MySQL user] ***********************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [mysql : Create replication MySQL user] ***********************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [mysql : read only mode on replica server] ********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_backup : Create a directory if it does not exist] ******************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_backup : Create MySQL user backup] *********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_backup : cnf file] *************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_backup : put conf file] ********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_backup : Ensure that cron file is created] *************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+PLAY [Configure DNS Server] ****************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [bind : install bind9] ****************************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [bind : Start service bind9] **********************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [bind : named.conf.options] ***********************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [bind : db.spray] *********************************************************
+skipping: [yyjjjjy666-1]
+skipping: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [bind : db reversed conf] *************************************************
+skipping: [yyjjjjy666-1]
+skipping: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [bind : named.conf.local] *************************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [bind : Execute handlers] *************************************************
+
+TASK [bind : Add A records] ****************************************************
+skipping: [yyjjjjy666-1] => (item={'key': 'backup', 'value': '192.168.42.156'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'backup', 'value': '192.168.42.156'}) 
+ok: [yyjjjjy666-3] => (item={'key': 'backup', 'value': '192.168.42.156'})
+
+TASK [bind : Add CNAME records] ************************************************
+skipping: [yyjjjjy666-1] => (item={'key': 'grafana', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'grafana', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'influxdb', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'influxdb', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'lb1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'lb1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'lb2', 'value': 'yyjjjjy666-2'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'lb2', 'value': 'yyjjjjy666-2'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'mysql1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'mysql1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'mysql2', 'value': 'yyjjjjy666-2'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'mysql2', 'value': 'yyjjjjy666-2'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'ns1', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'ns1', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'ns2', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'ns2', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'prometheus', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'prometheus', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'web1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'web1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'web2', 'value': 'yyjjjjy666-2'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'web2', 'value': 'yyjjjjy666-2'}) 
+ok: [yyjjjjy666-3] => (item={'key': 'grafana', 'value': 'yyjjjjy666-3'})
+ok: [yyjjjjy666-3] => (item={'key': 'influxdb', 'value': 'yyjjjjy666-3'})
+ok: [yyjjjjy666-3] => (item={'key': 'lb1', 'value': 'yyjjjjy666-1'})
+ok: [yyjjjjy666-3] => (item={'key': 'lb2', 'value': 'yyjjjjy666-2'})
+ok: [yyjjjjy666-3] => (item={'key': 'mysql1', 'value': 'yyjjjjy666-1'})
+ok: [yyjjjjy666-3] => (item={'key': 'mysql2', 'value': 'yyjjjjy666-2'})
+ok: [yyjjjjy666-3] => (item={'key': 'ns1', 'value': 'yyjjjjy666-3'})
+ok: [yyjjjjy666-3] => (item={'key': 'ns2', 'value': 'yyjjjjy666-1'})
+ok: [yyjjjjy666-3] => (item={'key': 'prometheus', 'value': 'yyjjjjy666-3'})
+ok: [yyjjjjy666-3] => (item={'key': 'web1', 'value': 'yyjjjjy666-1'})
+ok: [yyjjjjy666-3] => (item={'key': 'web2', 'value': 'yyjjjjy666-2'})
+
+TASK [bind_exporter : install bind exporter] ***********************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [bind_exporter : enable bind exporter] ************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+PLAY [dns resolver] ************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [dns_resolve : disable systemd-resolved] **********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [dns_resolve : resolv.conf] ***********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+PLAY [docker] ******************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [docker : install docker] *************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [docker : start docker service] *******************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+PLAY [All machines] ************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+TASK [agama : create dir for agama] ********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [agama : install agama] ***************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+
+TASK [agama : build docker image] **********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+
+TASK [agama : install and start agama] *****************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [agama : install and start agama 2] ***************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+PLAY [All machines] ************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [nginx : Install nginx] ***************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [nginx : Start nginx service] *********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [nginx : Copy config to location] *****************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [nginx_exporter : Download Nginx exporter] ********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [nginx_exporter : start nginx-exporter] ***********************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+
+TASK [nginx_exporter : copy exporter config] ***********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+PLAY [All machines] ************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [node_exporter : Exporter packages] ***************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [node_exporter : Enable node exporter service] ****************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+PLAY [Install and configure prometheus] ****************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-3]
+
+TASK [prometheus : Install Prometheus] *****************************************
+ok: [yyjjjjy666-3]
+
+TASK [prometheus : Configure Prometheus] ***************************************
+ok: [yyjjjjy666-3]
+
+TASK [prometheus : ARGS file] **************************************************
+ok: [yyjjjjy666-3]
+
+PLAY [mysql exporter] **********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_exporter : install mysqld exporter] ********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_exporter : Create MySQL user exporter] *****************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_exporter : put template] *******************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [mysql_exporter : sleep 10 sec] *******************************************
+skipping: [yyjjjjy666-1]
+
+TASK [mysql_exporter : put template] *******************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_exporter : sleep 10 sec] *******************************************
+skipping: [yyjjjjy666-1]
+
+TASK [mysql_exporter : Start mysql exporter] ***********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+PLAY [grafana] *****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-3]
+
+TASK [grafana : create grafana directories] ************************************
+ok: [yyjjjjy666-3] => (item=dashboards)
+ok: [yyjjjjy666-3] => (item=datasources)
+
+TASK [grafana : put grafana config] ********************************************
+ok: [yyjjjjy666-3]
+
+TASK [grafana : prometheus datasource] *****************************************
+ok: [yyjjjjy666-3]
+
+TASK [grafana : influxdb datasource] *******************************************
+ok: [yyjjjjy666-3]
+
+TASK [grafana : telegraf datasource] *******************************************
+ok: [yyjjjjy666-3]
+
+TASK [grafana : put dashboard.yaml to dashboards] ******************************
+ok: [yyjjjjy666-3]
+
+TASK [grafana : put dashboard files to dashboards] *****************************
+ok: [yyjjjjy666-3] => (item=main.json)
+ok: [yyjjjjy666-3] => (item=mysql.json)
+ok: [yyjjjjy666-3] => (item=syslog.json)
+
+TASK [grafana : install and start the grafana in the docker container] *********
+ok: [yyjjjjy666-3]
+
+PLAY [configure influx and backup] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : Add apt key for influxDB] *************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : add specified repository into sources list] *******************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : install influxdb and telegraf] ********************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : influxdb configuration] ***************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : Start service influxdb, if not started] ***********************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : Reconfigure Telegraf] *****************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : Start service telegraf, if not started] ***********************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb_backup : Create a directory if it does not exist] ***************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb_backup : put backup template] ***********************************
+ok: [yyjjjjy666-3]
+
+PLAY [transfer and setup pinger sciprt] ****************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Install fping] **************************************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Install curl] ***************************************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Add the user "pinger"] ******************************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Create pinger configuration directory] **************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Create pinger configuration] ************************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Place script to /usr/local/bin/pinger] **************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Create pinger service] ******************************************
+ok: [yyjjjjy666-1]
+
+PLAY [transfer and setup pinger sciprt] ****************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+TASK [rsyslog : Install Rsyslog] ***********************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+TASK [rsyslog : Reconfigure Rsyslog] *******************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [rsyslog : start rsyslog] *************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+PLAY [configure influx and backup] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb_exporter : download influxdb stats exporter] ********************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb_exporter : put service file] ************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb_exporter : start service] ***************************************
+ok: [yyjjjjy666-3]
+
+PLAY [keepalived] **************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [keepalived : Install keepalived] *****************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [keepalived : creater keepalivescript user] *******************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [keepalived : put keepalived script] **************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [keepalived : put keepalived config] **************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [keepalived : start service keepalived] ***********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [keepalived_exporter : download and unzip archive with exporter] **********
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [keepalived_exporter : copy keepalived exporter] **************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [keepalived_exporter : create service] ************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [keepalived_exporter : start enable keepalived exporter] ******************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+PLAY [haproxy] *****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [haproxy : Install haproxy] ***********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [haproxy : put haproxy config] ********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [haproxy : Install haproxy exporter] **************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [haproxy : add correct args] **********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [haproxy : start service haproxy] *****************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [haproxy : start service haproxy exporter] ********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+PLAY RECAP *********************************************************************
+yyjjjjy666-1               : ok=84   changed=0    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+yyjjjjy666-2               : ok=76   changed=0    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+yyjjjjy666-3               : ok=71   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
++ ansible all -b -m reboot -a test_command=uptime
+yyjjjjy666-3 | CHANGED => {
+    "changed": true,
+    "elapsed": 55,
+    "rebooted": true
+}
+yyjjjjy666-2 | CHANGED => {
+    "changed": true,
+    "elapsed": 57,
+    "rebooted": true
+}
+yyjjjjy666-1 | CHANGED => {
+    "changed": true,
+    "elapsed": 58,
+    "rebooted": true
+}
++ ansible-playbook infra.yaml --diff
+
+PLAY [Init] ********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [init : Update APT cache] *************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [init : set hostname] *****************************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [backup : create user backup] *********************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+TASK [backup : Create a directory if it does not exist] ************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+
+TASK [backup : put known hosts] ************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+
+TASK [backup : install duplicity] **********************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+PLAY [Setup DB Server] *********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql : Install MySQL server] ********************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [mysql : Start mysql service] *********************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [mysql : Copy override to location] ***************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql : Create MySQL database] *******************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql : Create MySQL user] ***********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql : Create replication MySQL user] ***********************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [mysql : read only mode on replica server] ********************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [mysql_backup : Create a directory if it does not exist] ******************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_backup : Create MySQL user backup] *********************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [mysql_backup : cnf file] *************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [mysql_backup : put conf file] ********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_backup : Ensure that cron file is created] *************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+PLAY [Configure DNS Server] ****************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [bind : install bind9] ****************************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [bind : Start service bind9] **********************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [bind : named.conf.options] ***********************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [bind : db.spray] *********************************************************
+skipping: [yyjjjjy666-1]
+skipping: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [bind : db reversed conf] *************************************************
+skipping: [yyjjjjy666-1]
+skipping: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [bind : named.conf.local] *************************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [bind : Execute handlers] *************************************************
+
+TASK [bind : Add A records] ****************************************************
+skipping: [yyjjjjy666-1] => (item={'key': 'backup', 'value': '192.168.42.156'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'backup', 'value': '192.168.42.156'}) 
+ok: [yyjjjjy666-3] => (item={'key': 'backup', 'value': '192.168.42.156'})
+
+TASK [bind : Add CNAME records] ************************************************
+skipping: [yyjjjjy666-1] => (item={'key': 'grafana', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'influxdb', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'lb1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'lb2', 'value': 'yyjjjjy666-2'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'mysql1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'grafana', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'influxdb', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'mysql2', 'value': 'yyjjjjy666-2'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'lb1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'ns1', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'lb2', 'value': 'yyjjjjy666-2'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'ns2', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'prometheus', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'mysql1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'mysql2', 'value': 'yyjjjjy666-2'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'web1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-1] => (item={'key': 'web2', 'value': 'yyjjjjy666-2'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'ns1', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'ns2', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'prometheus', 'value': 'yyjjjjy666-3'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'web1', 'value': 'yyjjjjy666-1'}) 
+skipping: [yyjjjjy666-2] => (item={'key': 'web2', 'value': 'yyjjjjy666-2'}) 
+ok: [yyjjjjy666-3] => (item={'key': 'grafana', 'value': 'yyjjjjy666-3'})
+ok: [yyjjjjy666-3] => (item={'key': 'influxdb', 'value': 'yyjjjjy666-3'})
+ok: [yyjjjjy666-3] => (item={'key': 'lb1', 'value': 'yyjjjjy666-1'})
+ok: [yyjjjjy666-3] => (item={'key': 'lb2', 'value': 'yyjjjjy666-2'})
+ok: [yyjjjjy666-3] => (item={'key': 'mysql1', 'value': 'yyjjjjy666-1'})
+ok: [yyjjjjy666-3] => (item={'key': 'mysql2', 'value': 'yyjjjjy666-2'})
+ok: [yyjjjjy666-3] => (item={'key': 'ns1', 'value': 'yyjjjjy666-3'})
+ok: [yyjjjjy666-3] => (item={'key': 'ns2', 'value': 'yyjjjjy666-1'})
+ok: [yyjjjjy666-3] => (item={'key': 'prometheus', 'value': 'yyjjjjy666-3'})
+ok: [yyjjjjy666-3] => (item={'key': 'web1', 'value': 'yyjjjjy666-1'})
+ok: [yyjjjjy666-3] => (item={'key': 'web2', 'value': 'yyjjjjy666-2'})
+
+TASK [bind_exporter : install bind exporter] ***********************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [bind_exporter : enable bind exporter] ************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+PLAY [dns resolver] ************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [dns_resolve : disable systemd-resolved] **********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [dns_resolve : resolv.conf] ***********************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+PLAY [docker] ******************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [docker : install docker] *************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+TASK [docker : start docker service] *******************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+PLAY [All machines] ************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+TASK [agama : create dir for agama] ********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [agama : install agama] ***************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [agama : build docker image] **********************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [agama : install and start agama] *****************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [agama : install and start agama 2] ***************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+PLAY [All machines] ************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [nginx : Install nginx] ***************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+
+TASK [nginx : Start nginx service] *********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [nginx : Copy config to location] *****************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [nginx_exporter : Download Nginx exporter] ********************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+TASK [nginx_exporter : start nginx-exporter] ***********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [nginx_exporter : copy exporter config] ***********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+PLAY [All machines] ************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [node_exporter : Exporter packages] ***************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+TASK [node_exporter : Enable node exporter service] ****************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+PLAY [Install and configure prometheus] ****************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-3]
+
+TASK [prometheus : Install Prometheus] *****************************************
+ok: [yyjjjjy666-3]
+
+TASK [prometheus : Configure Prometheus] ***************************************
+ok: [yyjjjjy666-3]
+
+TASK [prometheus : ARGS file] **************************************************
+ok: [yyjjjjy666-3]
+
+PLAY [mysql exporter] **********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [mysql_exporter : install mysqld exporter] ********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_exporter : Create MySQL user exporter] *****************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_exporter : put template] *******************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [mysql_exporter : sleep 10 sec] *******************************************
+skipping: [yyjjjjy666-1]
+
+TASK [mysql_exporter : put template] *******************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [mysql_exporter : sleep 10 sec] *******************************************
+skipping: [yyjjjjy666-1]
+
+TASK [mysql_exporter : Start mysql exporter] ***********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+PLAY [grafana] *****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-3]
+
+TASK [grafana : create grafana directories] ************************************
+ok: [yyjjjjy666-3] => (item=dashboards)
+ok: [yyjjjjy666-3] => (item=datasources)
+
+TASK [grafana : put grafana config] ********************************************
+ok: [yyjjjjy666-3]
+
+TASK [grafana : prometheus datasource] *****************************************
+ok: [yyjjjjy666-3]
+
+TASK [grafana : influxdb datasource] *******************************************
+ok: [yyjjjjy666-3]
+
+TASK [grafana : telegraf datasource] *******************************************
+ok: [yyjjjjy666-3]
+
+TASK [grafana : put dashboard.yaml to dashboards] ******************************
+ok: [yyjjjjy666-3]
+
+TASK [grafana : put dashboard files to dashboards] *****************************
+ok: [yyjjjjy666-3] => (item=main.json)
+ok: [yyjjjjy666-3] => (item=mysql.json)
+ok: [yyjjjjy666-3] => (item=syslog.json)
+
+TASK [grafana : install and start the grafana in the docker container] *********
+ok: [yyjjjjy666-3]
+
+PLAY [configure influx and backup] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : Add apt key for influxDB] *************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : add specified repository into sources list] *******************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : install influxdb and telegraf] ********************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : influxdb configuration] ***************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : Start service influxdb, if not started] ***********************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : Reconfigure Telegraf] *****************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb : Start service telegraf, if not started] ***********************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb_backup : Create a directory if it does not exist] ***************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb_backup : put backup template] ***********************************
+ok: [yyjjjjy666-3]
+
+PLAY [transfer and setup pinger sciprt] ****************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Install fping] **************************************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Install curl] ***************************************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Add the user "pinger"] ******************************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Create pinger configuration directory] **************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Create pinger configuration] ************************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Place script to /usr/local/bin/pinger] **************************
+ok: [yyjjjjy666-1]
+
+TASK [pinger : Create pinger service] ******************************************
+ok: [yyjjjjy666-1]
+
+PLAY [transfer and setup pinger sciprt] ****************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [rsyslog : Install Rsyslog] ***********************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
+
+TASK [rsyslog : Reconfigure Rsyslog] *******************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+TASK [rsyslog : start rsyslog] *************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+
+PLAY [configure influx and backup] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb_exporter : download influxdb stats exporter] ********************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb_exporter : put service file] ************************************
+ok: [yyjjjjy666-3]
+
+TASK [influxdb_exporter : start service] ***************************************
+ok: [yyjjjjy666-3]
+
+PLAY [keepalived] **************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [keepalived : Install keepalived] *****************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [keepalived : creater keepalivescript user] *******************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [keepalived : put keepalived script] **************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [keepalived : put keepalived config] **************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [keepalived : start service keepalived] ***********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [keepalived_exporter : download and unzip archive with exporter] **********
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [keepalived_exporter : copy keepalived exporter] **************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [keepalived_exporter : create service] ************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [keepalived_exporter : start enable keepalived exporter] ******************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+PLAY [haproxy] *****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+
+TASK [haproxy : Install haproxy] ***********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [haproxy : put haproxy config] ********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [haproxy : Install haproxy exporter] **************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [haproxy : add correct args] **********************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [haproxy : start service haproxy] *****************************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+TASK [haproxy : start service haproxy exporter] ********************************
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+PLAY RECAP *********************************************************************
+yyjjjjy666-1               : ok=84   changed=0    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+yyjjjjy666-2               : ok=76   changed=0    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+yyjjjjy666-3               : ok=71   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
++ date
+E 20 dets  2021 00:30:04 EET

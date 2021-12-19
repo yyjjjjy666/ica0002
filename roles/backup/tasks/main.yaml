@@ -12,13 +12,13 @@
       state: directory
       owner: backup
       group: backup
-      mode: '0644'
+      mode: 0755
 
   - name: put known hosts
     template:
       owner: backup
       group: backup
-      mode: '0644'
+      mode: 0755
       src: known_hosts.j2
       dest: /home/backup/.ssh/known_hosts
 
