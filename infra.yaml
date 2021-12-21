@@ -28,6 +28,12 @@
     roles:
       - dns_resolve
 
+  - name: fix docker
+    hosts: all 
+    become: yes
+    roles:
+      - docker_fix
+
   - name: docker
     hosts: all 
     become: yes

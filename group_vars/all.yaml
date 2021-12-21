@@ -27,7 +27,7 @@ vm1: yyjjjjy666-1
 vm2: yyjjjjy666-2
 vm3: yyjjjjy666-3
 
-public_ip: 193.40.156.86
+public_ip: 193.40.156.67
 
 mysql_exporter_user: exporter
 mysql_exporter_password: !vault |
@@ -46,7 +46,7 @@ grafana_password: !vault |
           3238383434616538640a653562383935333631613864323536373562363833333731376364306134
           3431
 
-backup_srv_ip: 192.168.42.156
+backup_srv_ip: 192.168.42.132
 
 backup_server_ssh_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSne71MCp6CQCHURWe3CLud6vPDkLfL83Oab/giAI7O
 
@@ -92,7 +92,7 @@ dns_update_key: !vault |
           3632636637383839373734303061623131613233656531313030
 
 a_records:
-    backup: 192.168.42.156
+    backup: 192.168.42.132
 
 cname_records:
     grafana: "{{ groups['grafana'][0] }}"
