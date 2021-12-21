@@ -29,7 +29,7 @@
     template:
       src: pinger.sh.j2
       dest: /usr/local/bin/pinger
-      mode: '0777'
+      mode: '0755'
     notify: restart pinger
 
   - name: Create pinger service
@@ -39,3 +39,12 @@
     notify: 
       - reload systemd
       - restart pinger
+
+  - name: Execute handlers
+    meta: flush_handlers
+
+  - name: Start pinger
+    service:
+        name: pinger
+        state: started
+        enabled: yes
