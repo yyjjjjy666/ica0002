@@ -18,7 +18,6 @@
       src: my.cnf.j2
       dest: /var/lib/prometheus/.my.cnf
     notify: restart mysqld exporter
-    no_log: true
 
   - name: sleep 10 sec
     pause:
