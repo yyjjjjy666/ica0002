@@ -1,4 +1,4 @@
-T 21 dets  2021 17:27:19 EET
+T 21 dets  2021 18:23:40 EET
 + hostname
 administrator-VirtualBox
 + ansible-playbook infra.yaml --diff
@@ -6,9 +6,9 @@ administrator-VirtualBox
 PLAY [Init] ********************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 
 TASK [init : Update APT cache] *************************************************
 ok: [yyjjjjy666-2]
@@ -16,19 +16,19 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 TASK [init : set hostname] *****************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [backup : create user backup] *********************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 TASK [backup : Create a directory if it does not exist] ************************
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
 
 TASK [backup : put known hosts] ************************************************
 ok: [yyjjjjy666-1]
@@ -36,8 +36,8 @@ ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 
 TASK [backup : install duplicity] **********************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 PLAY [Setup DB Server] *********************************************************
@@ -59,8 +59,8 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [mysql : Create MySQL database] *******************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql : Create MySQL user] ***********************************************
 ok: [yyjjjjy666-2]
@@ -71,35 +71,35 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [mysql : read only mode on replica server] ********************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [mysql_backup : Create a directory if it does not exist] ******************
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [mysql_backup : Create MySQL user backup] *********************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql_backup : cnf file] *************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql_backup : put conf file] ********************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql_backup : Ensure that cron file is created] *************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 PLAY [Configure DNS Server] ****************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [bind : install bind9] ****************************************************
 ok: [yyjjjjy666-3]
@@ -107,9 +107,9 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [bind : Start service bind9] **********************************************
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 
 TASK [bind : named.conf.options] ***********************************************
 ok: [yyjjjjy666-3]
@@ -128,8 +128,8 @@ ok: [yyjjjjy666-3]
 
 TASK [bind : named.conf.local] *************************************************
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [bind : Execute handlers] *************************************************
 
@@ -145,20 +145,20 @@ TASK [bind : Add CNAME records] ************************************************
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
-skipping: [yyjjjjy666-2] => (item=None) 
-skipping: [yyjjjjy666-1] => (item=None) 
-skipping: [yyjjjjy666-2] => (item=None) 
-skipping: [yyjjjjy666-1] => (item=None) 
-skipping: [yyjjjjy666-2] => (item=None) 
-skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
+skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
+skipping: [yyjjjjy666-2] => (item=None) 
+skipping: [yyjjjjy666-1] => (item=None) 
+skipping: [yyjjjjy666-2] => (item=None) 
+skipping: [yyjjjjy666-1] => (item=None) 
+skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-1]
 skipping: [yyjjjjy666-2] => (item=None) 
@@ -180,14 +180,14 @@ ok: [yyjjjjy666-3] => (item=None)
 ok: [yyjjjjy666-3]
 
 TASK [bind_exporter : install bind exporter] ***********************************
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 
 TASK [bind_exporter : enable bind exporter] ************************************
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 PLAY [dns resolver] ************************************************************
 
@@ -198,13 +198,13 @@ ok: [yyjjjjy666-3]
 
 TASK [dns_resolve : disable systemd-resolved] **********************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 
 TASK [dns_resolve : resolv.conf] ***********************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 
 PLAY [fix docker] **************************************************************
 
@@ -219,9 +219,9 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [docker_fix : rule for docker] ********************************************
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
 
 TASK [docker_fix : Restore iptables] *******************************************
 [WARNING]: Attempts to restore iptables state without rollback in case of
@@ -240,14 +240,14 @@ regain it before fixing firewall rules through a serial console, or any other
 way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
 to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
 ok: [yyjjjjy666-2]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
 
 PLAY [docker] ******************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [docker : install docker] *************************************************
@@ -273,18 +273,18 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [agama : install agama] ***************************************************
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
 
 TASK [agama : build docker image] **********************************************
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
 
 TASK [agama : install and start agama] *****************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 TASK [agama : install and start agama 2] ***************************************
@@ -295,8 +295,8 @@ ok: [yyjjjjy666-3]
 PLAY [All machines] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [nginx : Install nginx] ***************************************************
@@ -315,13 +315,13 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [nginx_exporter : Download Nginx exporter] ********************************
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 
 TASK [nginx_exporter : start nginx-exporter] ***********************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 TASK [nginx_exporter : copy exporter config] ***********************************
@@ -332,14 +332,14 @@ ok: [yyjjjjy666-3]
 PLAY [All machines] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [node_exporter : Exporter packages] ***************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 
 TASK [node_exporter : Enable node exporter service] ****************************
 ok: [yyjjjjy666-1]
@@ -371,26 +371,30 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [mysql_exporter : Create MySQL user exporter] *****************************
-ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
+changed: [yyjjjjy666-2]
+changed: [yyjjjjy666-1]
 
 TASK [mysql_exporter : put template] *******************************************
-ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
+changed: [yyjjjjy666-1]
+changed: [yyjjjjy666-2]
 
 TASK [mysql_exporter : sleep 10 sec] *******************************************
 skipping: [yyjjjjy666-1]
 
 TASK [mysql_exporter : put template] *******************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql_exporter : sleep 10 sec] *******************************************
 skipping: [yyjjjjy666-1]
 
 TASK [mysql_exporter : Start mysql exporter] ***********************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+
+RUNNING HANDLER [mysql_exporter : restart mysqld exporter] *********************
+changed: [yyjjjjy666-1]
+changed: [yyjjjjy666-2]
 
 PLAY [grafana] *****************************************************************
 
@@ -486,8 +490,8 @@ PLAY [transfer and setup pinger sciprt] ****************************************
 
 TASK [Gathering Facts] *********************************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 
 TASK [rsyslog : Install Rsyslog] ***********************************************
 ok: [yyjjjjy666-1]
@@ -495,8 +499,8 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [rsyslog : Reconfigure Rsyslog] *******************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 TASK [rsyslog : start rsyslog] *************************************************
@@ -579,8 +583,8 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 
 TASK [haproxy : add correct args] **********************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [haproxy : start service haproxy] *****************************************
 ok: [yyjjjjy666-1]
@@ -591,8 +595,8 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 PLAY RECAP *********************************************************************
-yyjjjjy666-1               : ok=88   changed=0    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
-yyjjjjy666-2               : ok=80   changed=0    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+yyjjjjy666-1               : ok=89   changed=3    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+yyjjjjy666-2               : ok=81   changed=3    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
 yyjjjjy666-3               : ok=75   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
 + ansible-playbook infra.yaml --diff
@@ -600,38 +604,38 @@ yyjjjjy666-3               : ok=75   changed=0    unreachable=0    failed=0    s
 PLAY [Init] ********************************************************************
 
 TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-1]
 
 TASK [init : Update APT cache] *************************************************
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 
 TASK [init : set hostname] *****************************************************
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
 
 TASK [backup : create user backup] *********************************************
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
-ok: [yyjjjjy666-1]
 
 TASK [backup : Create a directory if it does not exist] ************************
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-1]
 
 TASK [backup : put known hosts] ************************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 TASK [backup : install duplicity] **********************************************
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 
 PLAY [Setup DB Server] *********************************************************
@@ -641,8 +645,8 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [mysql : Install MySQL server] ********************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql : Start mysql service] *********************************************
 ok: [yyjjjjy666-2]
@@ -677,8 +681,8 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [mysql_backup : cnf file] *************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql_backup : put conf file] ********************************************
 ok: [yyjjjjy666-1]
@@ -706,8 +710,8 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [bind : named.conf.options] ***********************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [bind : db.spray] *********************************************************
@@ -721,9 +725,9 @@ skipping: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [bind : named.conf.local] *************************************************
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
-ok: [yyjjjjy666-1]
 
 TASK [bind : Execute handlers] *************************************************
 
@@ -745,8 +749,8 @@ skipping: [yyjjjjy666-1] => (item=None)
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
-skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
+skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
@@ -796,20 +800,20 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [dns_resolve : resolv.conf] ***********************************************
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-1]
 
 PLAY [fix docker] **************************************************************
 
 TASK [Gathering Facts] *********************************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 
 TASK [docker_fix : Install iptables-persistent] ********************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [docker_fix : rule for docker] ********************************************
@@ -834,14 +838,14 @@ regain it before fixing firewall rules through a serial console, or any other
 way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
 to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 
 PLAY [docker] ******************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [docker : install docker] *************************************************
@@ -850,8 +854,8 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [docker : start docker service] *******************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 PLAY [All machines] ************************************************************
@@ -863,34 +867,34 @@ ok: [yyjjjjy666-3]
 
 TASK [agama : create dir for agama] ********************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 
 TASK [agama : install agama] ***************************************************
 ok: [yyjjjjy666-2]
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 TASK [agama : build docker image] **********************************************
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
 
 TASK [agama : install and start agama] *****************************************
 ok: [yyjjjjy666-2]
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 TASK [agama : install and start agama 2] ***************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 PLAY [All machines] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 TASK [nginx : Install nginx] ***************************************************
@@ -919,21 +923,21 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [nginx_exporter : copy exporter config] ***********************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 PLAY [All machines] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-2]
 
 TASK [node_exporter : Exporter packages] ***************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 
 TASK [node_exporter : Enable node exporter service] ****************************
 ok: [yyjjjjy666-1]
@@ -961,8 +965,8 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [mysql_exporter : install mysqld exporter] ********************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql_exporter : Create MySQL user exporter] *****************************
 ok: [yyjjjjy666-1]
@@ -983,8 +987,8 @@ TASK [mysql_exporter : sleep 10 sec] *******************************************
 skipping: [yyjjjjy666-1]
 
 TASK [mysql_exporter : Start mysql exporter] ***********************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 PLAY [grafana] *****************************************************************
 
@@ -1080,8 +1084,8 @@ PLAY [transfer and setup pinger sciprt] ****************************************
 
 TASK [Gathering Facts] *********************************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 
 TASK [rsyslog : Install Rsyslog] ***********************************************
 ok: [yyjjjjy666-2]
@@ -1094,8 +1098,8 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [rsyslog : start rsyslog] *************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 PLAY [configure influx and backup] *********************************************
@@ -1119,54 +1123,54 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 
 TASK [keepalived : Install keepalived] *****************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [keepalived : creater keepalivescript user] *******************************
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 
 TASK [keepalived : put keepalived script] **************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [keepalived : put keepalived config] **************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [keepalived : start service keepalived] ***********************************
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [keepalived_exporter : download and unzip archive with exporter] **********
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [keepalived_exporter : copy keepalived exporter] **************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [keepalived_exporter : create service] ************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [keepalived_exporter : start enable keepalived exporter] ******************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 PLAY [haproxy] *****************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [haproxy : Install haproxy] ***********************************************
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [haproxy : put haproxy config] ********************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [haproxy : Install haproxy exporter] **************************************
 ok: [yyjjjjy666-1]
@@ -1177,12 +1181,12 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [haproxy : start service haproxy] *****************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [haproxy : start service haproxy exporter] ********************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 PLAY RECAP *********************************************************************
 yyjjjjy666-1               : ok=88   changed=0    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
@@ -1192,17 +1196,17 @@ yyjjjjy666-3               : ok=75   changed=0    unreachable=0    failed=0    s
 + ansible all -b -m reboot -a test_command=uptime
 yyjjjjy666-2 | CHANGED => {
     "changed": true,
-    "elapsed": 41,
-    "rebooted": true
-}
-yyjjjjy666-1 | CHANGED => {
-    "changed": true,
-    "elapsed": 51,
+    "elapsed": 40,
     "rebooted": true
 }
 yyjjjjy666-3 | CHANGED => {
     "changed": true,
-    "elapsed": 52,
+    "elapsed": 40,
+    "rebooted": true
+}
+yyjjjjy666-1 | CHANGED => {
+    "changed": true,
+    "elapsed": 41,
     "rebooted": true
 }
 + ansible-playbook infra.yaml --diff
@@ -1210,9 +1214,9 @@ yyjjjjy666-3 | CHANGED => {
 PLAY [Init] ********************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 TASK [init : Update APT cache] *************************************************
 ok: [yyjjjjy666-1]
@@ -1225,23 +1229,23 @@ ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 
 TASK [backup : create user backup] *********************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [backup : Create a directory if it does not exist] ************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [backup : put known hosts] ************************************************
+ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
-ok: [yyjjjjy666-3]
 
 TASK [backup : install duplicity] **********************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 PLAY [Setup DB Server] *********************************************************
@@ -1251,20 +1255,20 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [mysql : Install MySQL server] ********************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [mysql : Start mysql service] *********************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [mysql : Copy override to location] ***************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql : Create MySQL database] *******************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [mysql : Create MySQL user] ***********************************************
 ok: [yyjjjjy666-1]
@@ -1279,16 +1283,16 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [mysql_backup : Create a directory if it does not exist] ******************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [mysql_backup : Create MySQL user backup] *********************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [mysql_backup : cnf file] *************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql_backup : put conf file] ********************************************
 ok: [yyjjjjy666-1]
@@ -1301,24 +1305,24 @@ ok: [yyjjjjy666-2]
 PLAY [Configure DNS Server] ****************************************************
 
 TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
-ok: [yyjjjjy666-3]
 
 TASK [bind : install bind9] ****************************************************
+ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
-ok: [yyjjjjy666-3]
 
 TASK [bind : Start service bind9] **********************************************
-ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 TASK [bind : named.conf.options] ***********************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [bind : db.spray] *********************************************************
 skipping: [yyjjjjy666-1]
@@ -1351,18 +1355,18 @@ skipping: [yyjjjjy666-1] => (item=None)
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
-skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
-skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
+skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
+skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-1]
 skipping: [yyjjjjy666-2] => (item=None) 
@@ -1385,8 +1389,8 @@ ok: [yyjjjjy666-3]
 
 TASK [bind_exporter : install bind exporter] ***********************************
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [bind_exporter : enable bind exporter] ************************************
 ok: [yyjjjjy666-3]
@@ -1396,14 +1400,14 @@ ok: [yyjjjjy666-2]
 PLAY [dns resolver] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 TASK [dns_resolve : disable systemd-resolved] **********************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 
 TASK [dns_resolve : resolv.conf] ***********************************************
 ok: [yyjjjjy666-1]
@@ -1413,18 +1417,18 @@ ok: [yyjjjjy666-3]
 PLAY [fix docker] **************************************************************
 
 TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-2]
 
 TASK [docker_fix : Install iptables-persistent] ********************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 
 TASK [docker_fix : rule for docker] ********************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 TASK [docker_fix : Restore iptables] *******************************************
@@ -1443,9 +1447,9 @@ mistake may lead the ansible controller to loose access to the hosts and never
 regain it before fixing firewall rules through a serial console, or any other
 way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
 to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
+ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
-ok: [yyjjjjy666-3]
 
 PLAY [docker] ******************************************************************
 
@@ -1456,13 +1460,13 @@ ok: [yyjjjjy666-3]
 
 TASK [docker : install docker] *************************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 
 TASK [docker : start docker service] *******************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 
 PLAY [All machines] ************************************************************
 
@@ -1473,34 +1477,34 @@ ok: [yyjjjjy666-3]
 
 TASK [agama : create dir for agama] ********************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 
 TASK [agama : install agama] ***************************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [agama : build docker image] **********************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 
 TASK [agama : install and start agama] *****************************************
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-2]
 
 TASK [agama : install and start agama 2] ***************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 
 PLAY [All machines] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 TASK [nginx : Install nginx] ***************************************************
@@ -1519,8 +1523,8 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [nginx_exporter : Download Nginx exporter] ********************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [nginx_exporter : start nginx-exporter] ***********************************
@@ -1529,26 +1533,26 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [nginx_exporter : copy exporter config] ***********************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 PLAY [All machines] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [node_exporter : Exporter packages] ***************************************
-ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 TASK [node_exporter : Enable node exporter service] ****************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 PLAY [Install and configure prometheus] ****************************************
 
@@ -1567,20 +1571,20 @@ ok: [yyjjjjy666-3]
 PLAY [mysql exporter] **********************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [mysql_exporter : install mysqld exporter] ********************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [mysql_exporter : Create MySQL user exporter] *****************************
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [mysql_exporter : put template] *******************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql_exporter : sleep 10 sec] *******************************************
 skipping: [yyjjjjy666-1]
@@ -1593,8 +1597,8 @@ TASK [mysql_exporter : sleep 10 sec] *******************************************
 skipping: [yyjjjjy666-1]
 
 TASK [mysql_exporter : Start mysql exporter] ***********************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 PLAY [grafana] *****************************************************************
 
@@ -1689,8 +1693,8 @@ ok: [yyjjjjy666-1]
 PLAY [transfer and setup pinger sciprt] ****************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 TASK [rsyslog : Install Rsyslog] ***********************************************
@@ -1699,9 +1703,9 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [rsyslog : Reconfigure Rsyslog] *******************************************
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-1]
 
 TASK [rsyslog : start rsyslog] *************************************************
 ok: [yyjjjjy666-1]
@@ -1737,28 +1741,28 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [keepalived : put keepalived script] **************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [keepalived : put keepalived config] **************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [keepalived : start service keepalived] ***********************************
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [keepalived_exporter : download and unzip archive with exporter] **********
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [keepalived_exporter : copy keepalived exporter] **************************
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [keepalived_exporter : create service] ************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [keepalived_exporter : start enable keepalived exporter] ******************
 ok: [yyjjjjy666-1]
@@ -1779,20 +1783,20 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 
 TASK [haproxy : Install haproxy exporter] **************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [haproxy : add correct args] **********************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [haproxy : start service haproxy] *****************************************
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [haproxy : start service haproxy exporter] ********************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 PLAY RECAP *********************************************************************
 yyjjjjy666-1               : ok=88   changed=0    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
@@ -1800,4 +1804,4 @@ yyjjjjy666-2               : ok=80   changed=0    unreachable=0    failed=0    s
 yyjjjjy666-3               : ok=75   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
 + date
-T 21 dets  2021 17:34:41 EET
+T 21 dets  2021 18:30:20 EET
