@@ -1,4 +1,4 @@
-K 22 dets  2021 00:03:40 EET
+N 23 dets  2021 10:13:21 EET
 + hostname
 administrator-VirtualBox
 + ansible-playbook infra.yaml --diff
@@ -6,24 +6,24 @@ administrator-VirtualBox
 PLAY [Init] ********************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 
 TASK [init : Update APT cache] *************************************************
-changed: [yyjjjjy666-2]
-changed: [yyjjjjy666-1]
-changed: [yyjjjjy666-3]
-
-TASK [init : set hostname] *****************************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+changed: [yyjjjjy666-1]
+
+TASK [init : set hostname] *****************************************************
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [backup : create user backup] *********************************************
-changed: [yyjjjjy666-2]
-changed: [yyjjjjy666-1]
 changed: [yyjjjjy666-3]
+changed: [yyjjjjy666-1]
+changed: [yyjjjjy666-2]
 
 TASK [backup : Create a directory if it does not exist] ************************
 --- before
@@ -39,7 +39,7 @@ TASK [backup : Create a directory if it does not exist] ************************
 +    "state": "directory"
  }
 
-changed: [yyjjjjy666-2]
+changed: [yyjjjjy666-3]
 --- before
 +++ after
 @@ -1,6 +1,6 @@
@@ -53,7 +53,7 @@ changed: [yyjjjjy666-2]
 +    "state": "directory"
  }
 
-changed: [yyjjjjy666-3]
+changed: [yyjjjjy666-2]
 --- before
 +++ after
 @@ -1,6 +1,6 @@
@@ -71,21 +71,21 @@ changed: [yyjjjjy666-1]
 
 TASK [backup : put known hosts] ************************************************
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpfodgx6ih/known_hosts.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpwuk2nm4h/known_hosts.j2
 @@ -0,0 +1,2 @@
 +backup ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSne71MCp6CQCHURWe3CLud6vPDkLfL83Oab/giAI7O
 +backup.spray.gel ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSne71MCp6CQCHURWe3CLud6vPDkLfL83Oab/giAI7O
 
 changed: [yyjjjjy666-1]
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpwcxsajxg/known_hosts.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpkpwauach/known_hosts.j2
 @@ -0,0 +1,2 @@
 +backup ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSne71MCp6CQCHURWe3CLud6vPDkLfL83Oab/giAI7O
 +backup.spray.gel ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSne71MCp6CQCHURWe3CLud6vPDkLfL83Oab/giAI7O
 
 changed: [yyjjjjy666-2]
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpwl006sk5/known_hosts.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpmdypynen/known_hosts.j2
 @@ -0,0 +1,2 @@
 +backup ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSne71MCp6CQCHURWe3CLud6vPDkLfL83Oab/giAI7O
 +backup.spray.gel ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSne71MCp6CQCHURWe3CLud6vPDkLfL83Oab/giAI7O
@@ -103,17 +103,6 @@ The following NEW packages will be installed:
   duplicity librsync2 python3-bcrypt python3-fasteners python3-future
   python3-lockfile python3-monotonic python3-paramiko
 0 upgraded, 8 newly installed, 0 to remove and 140 not upgraded.
-changed: [yyjjjjy666-1]
-The following additional packages will be installed:
-  librsync2 python3-bcrypt python3-fasteners python3-future python3-lockfile
-  python3-monotonic python3-paramiko
-Suggested packages:
-  python3-boto ncftp lftp tahoe-lafs python3-swiftclient python3-pip par2
-  python-future-doc python-lockfile-doc python3-gssapi
-The following NEW packages will be installed:
-  duplicity librsync2 python3-bcrypt python3-fasteners python3-future
-  python3-lockfile python3-monotonic python3-paramiko
-0 upgraded, 8 newly installed, 0 to remove and 140 not upgraded.
 changed: [yyjjjjy666-3]
 The following additional packages will be installed:
   librsync2 python3-bcrypt python3-fasteners python3-future python3-lockfile
@@ -126,12 +115,23 @@ The following NEW packages will be installed:
   python3-lockfile python3-monotonic python3-paramiko
 0 upgraded, 8 newly installed, 0 to remove and 140 not upgraded.
 changed: [yyjjjjy666-2]
+The following additional packages will be installed:
+  librsync2 python3-bcrypt python3-fasteners python3-future python3-lockfile
+  python3-monotonic python3-paramiko
+Suggested packages:
+  python3-boto ncftp lftp tahoe-lafs python3-swiftclient python3-pip par2
+  python-future-doc python-lockfile-doc python3-gssapi
+The following NEW packages will be installed:
+  duplicity librsync2 python3-bcrypt python3-fasteners python3-future
+  python3-lockfile python3-monotonic python3-paramiko
+0 upgraded, 8 newly installed, 0 to remove and 140 not upgraded.
+changed: [yyjjjjy666-1]
 
 PLAY [Setup DB Server] *********************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [mysql : Install MySQL server] ********************************************
 The following additional packages will be installed:
@@ -153,7 +153,7 @@ The following NEW packages will be installed:
   mysql-common mysql-server mysql-server-8.0 mysql-server-core-8.0
   python3-pymysql
 0 upgraded, 26 newly installed, 0 to remove and 140 not upgraded.
-changed: [yyjjjjy666-2]
+changed: [yyjjjjy666-1]
 The following additional packages will be installed:
   libcgi-fast-perl libcgi-pm-perl libencode-locale-perl libevent-core-2.1-7
   libevent-pthreads-2.1-7 libfcgi-perl libhtml-parser-perl libhtml-tagset-perl
@@ -173,7 +173,7 @@ The following NEW packages will be installed:
   mysql-common mysql-server mysql-server-8.0 mysql-server-core-8.0
   python3-pymysql
 0 upgraded, 26 newly installed, 0 to remove and 140 not upgraded.
-changed: [yyjjjjy666-1]
+changed: [yyjjjjy666-2]
 
 TASK [mysql : Start mysql service] *********************************************
 ok: [yyjjjjy666-1]
@@ -181,43 +181,43 @@ ok: [yyjjjjy666-2]
 
 TASK [mysql : Copy override to location] ***************************************
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpen46ww23/override.cnf.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpuwr172bu/override.cnf.j2
 @@ -0,0 +1,6 @@
 +[mysqld]
 +bind-address = 0.0.0.0
 +log-bin = /var/log/mysql/mysql-bin.log
 +relay-log = /var/log/mysql/mysql-relay.log
 +replicate-do-db = agama
-+server-id = 48
++server-id = 165
 
 changed: [yyjjjjy666-1]
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp_sxqt2gk/override.cnf.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmphollzegj/override.cnf.j2
 @@ -0,0 +1,6 @@
 +[mysqld]
 +bind-address = 0.0.0.0
 +log-bin = /var/log/mysql/mysql-bin.log
 +relay-log = /var/log/mysql/mysql-relay.log
 +replicate-do-db = agama
-+server-id = 160
++server-id = 72
 
 changed: [yyjjjjy666-2]
 
 TASK [mysql : Create MySQL database] *******************************************
-changed: [yyjjjjy666-2]
 changed: [yyjjjjy666-1]
+changed: [yyjjjjy666-2]
 
 TASK [mysql : Create MySQL user] ***********************************************
-changed: [yyjjjjy666-1]
 changed: [yyjjjjy666-2]
+changed: [yyjjjjy666-1]
 
 TASK [mysql : Create replication MySQL user] ***********************************
 changed: [yyjjjjy666-1]
 changed: [yyjjjjy666-2]
 
 TASK [mysql : read only mode on replica server] ********************************
-changed: [yyjjjjy666-1]
 changed: [yyjjjjy666-2]
+changed: [yyjjjjy666-1]
 
 TASK [mysql_backup : Create a directory if it does not exist] ******************
 --- before
@@ -233,7 +233,7 @@ TASK [mysql_backup : Create a directory if it does not exist] ******************
 +    "state": "directory"
  }
 
-changed: [yyjjjjy666-1]
+changed: [yyjjjjy666-2]
 --- before
 +++ after
 @@ -1,6 +1,6 @@
@@ -247,39 +247,19 @@ changed: [yyjjjjy666-1]
 +    "state": "directory"
  }
 
-changed: [yyjjjjy666-2]
+changed: [yyjjjjy666-1]
 
 TASK [mysql_backup : Create MySQL user backup] *********************************
 changed: [yyjjjjy666-1]
 changed: [yyjjjjy666-2]
 
 TASK [mysql_backup : cnf file] *************************************************
---- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpzxjxvt6w/.my.cnf.j2
-@@ -0,0 +1,6 @@
-+[client]
-+user=backup
-+password=mysqlbackup
-+
-+[mysqldump]
-+no_tablespaces
-
 changed: [yyjjjjy666-1]
---- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp097m7shp/.my.cnf.j2
-@@ -0,0 +1,6 @@
-+[client]
-+user=backup
-+password=mysqlbackup
-+
-+[mysqldump]
-+no_tablespaces
-
 changed: [yyjjjjy666-2]
 
 TASK [mysql_backup : put conf file] ********************************************
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp6y_x20t1/mysql-backup.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmp9gufo68i/mysql-backup.j2
 @@ -0,0 +1,3 @@
 +50 * * * *  backup mysqldump agama > /home/backup/mysql/agama.sql
 +35 0 28 * *  backup  duplicity --no-encryption full /home/backup/mysql/ rsync://yyjjjjy666@backup.spray.gel//home/yyjjjjy666/
@@ -287,7 +267,7 @@ TASK [mysql_backup : put conf file] ********************************************
 
 changed: [yyjjjjy666-1]
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp7_9on9u6/mysql-backup.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpcg7m1r97/mysql-backup.j2
 @@ -0,0 +1 @@
 +
 
@@ -303,7 +283,7 @@ TASK [mysql_backup : Ensure that cron file is created] *************************
      "path": "/etc/cron.d/mysql-backup"
  }
 
-changed: [yyjjjjy666-2]
+changed: [yyjjjjy666-1]
 --- before
 +++ after
 @@ -1,4 +1,4 @@
@@ -313,7 +293,7 @@ changed: [yyjjjjy666-2]
      "path": "/etc/cron.d/mysql-backup"
  }
 
-changed: [yyjjjjy666-1]
+changed: [yyjjjjy666-2]
 
 RUNNING HANDLER [mysql : Reset MySQL source] ***********************************
 skipping: [yyjjjjy666-1] => (item=stopreplica) 
@@ -334,14 +314,14 @@ changed: [yyjjjjy666-1] => (item=None)
 changed: [yyjjjjy666-1]
 
 RUNNING HANDLER [mysql_backup : Restart mysql service] *************************
-changed: [yyjjjjy666-2]
 changed: [yyjjjjy666-1]
+changed: [yyjjjjy666-2]
 
 PLAY [Configure DNS Server] ****************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [bind : install bind9] ****************************************************
@@ -354,7 +334,7 @@ The following NEW packages will be installed:
 The following packages will be upgraded:
   bind9-dnsutils bind9-libs
 2 upgraded, 5 newly installed, 0 to remove and 138 not upgraded.
-changed: [yyjjjjy666-3]
+changed: [yyjjjjy666-1]
 The following additional packages will be installed:
   bind9-dnsutils bind9-libs bind9-utils dns-root-data python3-ply
 Suggested packages:
@@ -364,7 +344,7 @@ The following NEW packages will be installed:
 The following packages will be upgraded:
   bind9-dnsutils bind9-libs
 2 upgraded, 5 newly installed, 0 to remove and 138 not upgraded.
-changed: [yyjjjjy666-1]
+changed: [yyjjjjy666-3]
 The following additional packages will be installed:
   bind9-dnsutils bind9-libs bind9-utils dns-root-data python3-ply
 Suggested packages:
@@ -382,15 +362,15 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [bind : named.conf.options] ***********************************************
+changed: [yyjjjjy666-3]
 changed: [yyjjjjy666-2]
 changed: [yyjjjjy666-1]
-changed: [yyjjjjy666-3]
 
 TASK [bind : db.spray] *********************************************************
 skipping: [yyjjjjy666-1]
 skipping: [yyjjjjy666-2]
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpn99ots6w/db.spray.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpxf8thdir/db.spray.j2
 @@ -0,0 +1,15 @@
 +$TTL	604800
 +spray.gel.	IN	SOA	yyjjjjy666-2.spray.gel. daniel.spray.gel. (
@@ -404,9 +384,9 @@ skipping: [yyjjjjy666-2]
 +spray.gel.	IN	NS	yyjjjjy666-1
 +spray.gel.	IN	NS	yyjjjjy666-2
 +
-+yyjjjjy666-1	IN	A	192.168.42.48
-+yyjjjjy666-2	IN	A	192.168.42.160
-+yyjjjjy666-3	IN	A	192.168.42.115
++yyjjjjy666-1	IN	A	192.168.42.165
++yyjjjjy666-2	IN	A	192.168.42.72
++yyjjjjy666-3	IN	A	192.168.42.141
 
 changed: [yyjjjjy666-3]
 
@@ -414,7 +394,7 @@ TASK [bind : db reversed conf] *************************************************
 skipping: [yyjjjjy666-1]
 skipping: [yyjjjjy666-2]
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpw2ryumt8/db.spray.reversed.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmp_ni4ja1s/db.spray.reversed.j2
 @@ -0,0 +1,15 @@
 +$TTL	604800
 +42.168.192.in-addr.arpa.  IN	SOA	yyjjjjy666-2.spray.gel. daniel.spray.gel. (
@@ -428,41 +408,15 @@ skipping: [yyjjjjy666-2]
 +42.168.192.in-addr.arpa.	IN	NS	yyjjjjy666-1.spray.gel.
 +42.168.192.in-addr.arpa.	IN	NS	yyjjjjy666-2.spray.gel.
 +
-+48 IN PTR yyjjjjy666-1.spray.gel.
-+160 IN PTR yyjjjjy666-2.spray.gel.
-+115 IN PTR yyjjjjy666-3.spray.gel.
++165 IN PTR yyjjjjy666-1.spray.gel.
++72 IN PTR yyjjjjy666-2.spray.gel.
++141 IN PTR yyjjjjy666-3.spray.gel.
 
 changed: [yyjjjjy666-3]
 
 TASK [bind : named.conf.local] *************************************************
 --- before: /etc/bind/named.conf.local
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp3xl26h6r/named.conf.local.j2
-@@ -1,8 +1,15 @@
--//
--// Do any local configuration here
--//
-+zone "spray.gel" {
-+    type slave;
-+    masters { 192.168.42.115; };
-+    file "db.spray.gel";
-+};
- 
--// Consider adding the 1918 zones here, if they are not used in your
--// organization
--//include "/etc/bind/zones.rfc1918";
-+server 192.168.42.115 {
-+    keys {dns_transfer_key; };
-+};
- 
-+zone "42.168.192.in-addr.arpa" {
-+    type slave;
-+    masters { 192.168.42.115; };
-+    file "db.spray.reversed";
-+};
-
-changed: [yyjjjjy666-1]
---- before: /etc/bind/named.conf.local
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpwa0eof6b/named.conf.local.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmprlb1g9s9/named.conf.local.j2
 @@ -1,8 +1,20 @@
 -//
 -// Do any local configuration here
@@ -470,7 +424,7 @@ changed: [yyjjjjy666-1]
 +zone "spray.gel" {
 +    type master;
 +    allow-transfer {127.0.0.1;
-+    192.168.42.48;
++    192.168.42.165;
 +     key dns_transfer_key; };
 +    allow-update {127.0.0.1; key dns_update_key; };
  
@@ -484,7 +438,7 @@ changed: [yyjjjjy666-1]
 +zone "42.168.192.in-addr.arpa" {
 +    type master;
 +    allow-transfer {127.0.0.1;
-+    192.168.42.48;
++    192.168.42.165;
 +     key dns_transfer_key; };
 +    allow-update {127.0.0.1; key dns_update_key; };
 +
@@ -493,27 +447,53 @@ changed: [yyjjjjy666-1]
 
 changed: [yyjjjjy666-3]
 --- before: /etc/bind/named.conf.local
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpncz1qp75/named.conf.local.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmp4q268qxu/named.conf.local.j2
 @@ -1,8 +1,15 @@
 -//
 -// Do any local configuration here
 -//
 +zone "spray.gel" {
 +    type slave;
-+    masters { 192.168.42.115; };
++    masters { 192.168.42.141; };
 +    file "db.spray.gel";
 +};
  
 -// Consider adding the 1918 zones here, if they are not used in your
 -// organization
 -//include "/etc/bind/zones.rfc1918";
-+server 192.168.42.115 {
++server 192.168.42.141 {
 +    keys {dns_transfer_key; };
 +};
  
 +zone "42.168.192.in-addr.arpa" {
 +    type slave;
-+    masters { 192.168.42.115; };
++    masters { 192.168.42.141; };
++    file "db.spray.reversed";
++};
+
+changed: [yyjjjjy666-1]
+--- before: /etc/bind/named.conf.local
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpe5zfsm9m/named.conf.local.j2
+@@ -1,8 +1,15 @@
+-//
+-// Do any local configuration here
+-//
++zone "spray.gel" {
++    type slave;
++    masters { 192.168.42.141; };
++    file "db.spray.gel";
++};
+ 
+-// Consider adding the 1918 zones here, if they are not used in your
+-// organization
+-//include "/etc/bind/zones.rfc1918";
++server 192.168.42.141 {
++    keys {dns_transfer_key; };
++};
+ 
++zone "42.168.192.in-addr.arpa" {
++    type slave;
++    masters { 192.168.42.141; };
 +    file "db.spray.reversed";
 +};
 
@@ -522,9 +502,9 @@ changed: [yyjjjjy666-2]
 TASK [bind : Execute handlers] *************************************************
 
 RUNNING HANDLER [bind : restart bind] ******************************************
-changed: [yyjjjjy666-1]
-changed: [yyjjjjy666-2]
 changed: [yyjjjjy666-3]
+changed: [yyjjjjy666-2]
+changed: [yyjjjjy666-1]
 
 RUNNING HANDLER [bind : restart rndc] ******************************************
 changed: [yyjjjjy666-3]
@@ -543,18 +523,18 @@ skipping: [yyjjjjy666-1] => (item=None)
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
-skipping: [yyjjjjy666-2] => (item=None) 
-skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
+skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
+skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-1]
 skipping: [yyjjjjy666-2] => (item=None) 
@@ -597,18 +577,18 @@ ok: [yyjjjjy666-2]
 PLAY [dns resolver] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 TASK [dns_resolve : disable systemd-resolved] **********************************
 changed: [yyjjjjy666-1]
-changed: [yyjjjjy666-2]
 changed: [yyjjjjy666-3]
+changed: [yyjjjjy666-2]
 
 TASK [dns_resolve : resolv.conf] ***********************************************
 --- before: /etc/resolv.conf
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpx9gz5zh_/resolv.conf.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmppxcszxkh/resolv.conf.j2
 @@ -1,19 +1,3 @@
 -# This file is managed by man:systemd-resolved(8). Do not edit.
 -#
@@ -630,39 +610,12 @@ TASK [dns_resolve : resolv.conf] ***********************************************
 -options edns0 trust-ad
 -search openstacklocal
 +search spray.gel
-+nameserver 192.168.42.48
-+nameserver 192.168.42.160
-
-changed: [yyjjjjy666-2]
---- before: /etc/resolv.conf
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpznl8lmny/resolv.conf.j2
-@@ -1,19 +1,3 @@
--# This file is managed by man:systemd-resolved(8). Do not edit.
--#
--# This is a dynamic resolv.conf file for connecting local clients to the
--# internal DNS stub resolver of systemd-resolved. This file lists all
--# configured search domains.
--#
--# Run "resolvectl status" to see details about the uplink DNS servers
--# currently in use.
--#
--# Third party programs must not access this file directly, but only through the
--# symlink at /etc/resolv.conf. To manage man:resolv.conf(5) in a different way,
--# replace this symlink by a static file or a different symlink.
--#
--# See man:systemd-resolved.service(8) for details about the supported modes of
--# operation for /etc/resolv.conf.
--
--nameserver 127.0.0.53
--options edns0 trust-ad
--search openstacklocal
-+search spray.gel
-+nameserver 192.168.42.48
-+nameserver 192.168.42.160
++nameserver 192.168.42.165
++nameserver 192.168.42.72
 
 changed: [yyjjjjy666-1]
 --- before: /etc/resolv.conf
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp0n03qzea/resolv.conf.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpprrkzw7r/resolv.conf.j2
 @@ -1,19 +1,3 @@
 -# This file is managed by man:systemd-resolved(8). Do not edit.
 -#
@@ -684,17 +637,44 @@ changed: [yyjjjjy666-1]
 -options edns0 trust-ad
 -search openstacklocal
 +search spray.gel
-+nameserver 192.168.42.48
-+nameserver 192.168.42.160
++nameserver 192.168.42.165
++nameserver 192.168.42.72
 
 changed: [yyjjjjy666-3]
+--- before: /etc/resolv.conf
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpg0z5qdrg/resolv.conf.j2
+@@ -1,19 +1,3 @@
+-# This file is managed by man:systemd-resolved(8). Do not edit.
+-#
+-# This is a dynamic resolv.conf file for connecting local clients to the
+-# internal DNS stub resolver of systemd-resolved. This file lists all
+-# configured search domains.
+-#
+-# Run "resolvectl status" to see details about the uplink DNS servers
+-# currently in use.
+-#
+-# Third party programs must not access this file directly, but only through the
+-# symlink at /etc/resolv.conf. To manage man:resolv.conf(5) in a different way,
+-# replace this symlink by a static file or a different symlink.
+-#
+-# See man:systemd-resolved.service(8) for details about the supported modes of
+-# operation for /etc/resolv.conf.
+-
+-nameserver 127.0.0.53
+-options edns0 trust-ad
+-search openstacklocal
++search spray.gel
++nameserver 192.168.42.165
++nameserver 192.168.42.72
+
+changed: [yyjjjjy666-2]
 
 PLAY [fix docker] **************************************************************
 
 TASK [Gathering Facts] *********************************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 
 TASK [docker_fix : Install iptables-persistent] ********************************
 The following additional packages will be installed:
@@ -708,19 +688,19 @@ The following additional packages will be installed:
 The following NEW packages will be installed:
   iptables-persistent netfilter-persistent
 0 upgraded, 2 newly installed, 0 to remove and 138 not upgraded.
-changed: [yyjjjjy666-3]
+changed: [yyjjjjy666-2]
 The following additional packages will be installed:
   netfilter-persistent
 The following NEW packages will be installed:
   iptables-persistent netfilter-persistent
 0 upgraded, 2 newly installed, 0 to remove and 138 not upgraded.
-changed: [yyjjjjy666-2]
+changed: [yyjjjjy666-3]
 
 TASK [docker_fix : rule for docker] ********************************************
 --- before: /etc/iptables/rules.v4
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp0osyhds9/rules.v4.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpn5vwehxd/rules.v4.j2
 @@ -1,7 +1,8 @@
--# Generated by iptables-save v1.8.4 on Tue Dec 21 22:08:24 2021
+-# Generated by iptables-save v1.8.4 on Thu Dec 23 08:17:23 2021
 -*filter
 +*mangle
 +:PREROUTING ACCEPT [0:0]
@@ -730,13 +710,13 @@ TASK [docker_fix : rule for docker] ********************************************
 +:POSTROUTING ACCEPT [0:0]
 +-A POSTROUTING -o ens3 -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1400 --clamp-mss-to-pmtu
  COMMIT
--# Completed on Tue Dec 21 22:08:24 2021
+-# Completed on Thu Dec 23 08:17:23 2021
 
 changed: [yyjjjjy666-1]
 --- before: /etc/iptables/rules.v4
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpqx26v9yn/rules.v4.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpxnosx6bt/rules.v4.j2
 @@ -1,7 +1,8 @@
--# Generated by iptables-save v1.8.4 on Tue Dec 21 22:08:27 2021
+-# Generated by iptables-save v1.8.4 on Thu Dec 23 08:17:23 2021
 -*filter
 +*mangle
 +:PREROUTING ACCEPT [0:0]
@@ -746,13 +726,13 @@ changed: [yyjjjjy666-1]
 +:POSTROUTING ACCEPT [0:0]
 +-A POSTROUTING -o ens3 -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1400 --clamp-mss-to-pmtu
  COMMIT
--# Completed on Tue Dec 21 22:08:27 2021
+-# Completed on Thu Dec 23 08:17:23 2021
 
 changed: [yyjjjjy666-2]
 --- before: /etc/iptables/rules.v4
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpdt55m4dk/rules.v4.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmph0tga8nj/rules.v4.j2
 @@ -1,7 +1,8 @@
--# Generated by iptables-save v1.8.4 on Tue Dec 21 22:08:24 2021
+-# Generated by iptables-save v1.8.4 on Thu Dec 23 08:17:25 2021
 -*filter
 +*mangle
 +:PREROUTING ACCEPT [0:0]
@@ -762,7 +742,7 @@ changed: [yyjjjjy666-2]
 +:POSTROUTING ACCEPT [0:0]
 +-A POSTROUTING -o ens3 -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1400 --clamp-mss-to-pmtu
  COMMIT
--# Completed on Tue Dec 21 22:08:24 2021
+-# Completed on Thu Dec 23 08:17:25 2021
 
 changed: [yyjjjjy666-3]
 
@@ -782,8 +762,8 @@ mistake may lead the ansible controller to loose access to the hosts and never
 regain it before fixing firewall rules through a serial console, or any other
 way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
 to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
-changed: [yyjjjjy666-3]
 changed: [yyjjjjy666-1]
+changed: [yyjjjjy666-3]
 changed: [yyjjjjy666-2]
 
 PLAY [docker] ******************************************************************
@@ -804,7 +784,7 @@ The following NEW packages will be installed:
   bridge-utils containerd dnsmasq-base docker.io libidn11 pigz python3-docker
   python3-websocket runc ubuntu-fan
 0 upgraded, 10 newly installed, 0 to remove and 138 not upgraded.
-changed: [yyjjjjy666-1]
+changed: [yyjjjjy666-3]
 The following additional packages will be installed:
   bridge-utils containerd dnsmasq-base libidn11 pigz python3-websocket runc
   ubuntu-fan
@@ -826,7 +806,7 @@ The following NEW packages will be installed:
   bridge-utils containerd dnsmasq-base docker.io libidn11 pigz python3-docker
   python3-websocket runc ubuntu-fan
 0 upgraded, 10 newly installed, 0 to remove and 138 not upgraded.
-changed: [yyjjjjy666-3]
+changed: [yyjjjjy666-1]
 
 TASK [docker : start docker service] *******************************************
 ok: [yyjjjjy666-3]
@@ -837,8 +817,8 @@ PLAY [All machines] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [agama : create dir for agama] ********************************************
 --- before
@@ -874,29 +854,29 @@ changed: [yyjjjjy666-3]
 
 TASK [agama : install agama] ***************************************************
 changed: [yyjjjjy666-1]
-changed: [yyjjjjy666-2]
 changed: [yyjjjjy666-3]
+changed: [yyjjjjy666-2]
 
 TASK [agama : build docker image] **********************************************
-changed: [yyjjjjy666-2]
-changed: [yyjjjjy666-3]
 changed: [yyjjjjy666-1]
+changed: [yyjjjjy666-3]
+changed: [yyjjjjy666-2]
 
 TASK [agama : install and start agama] *****************************************
-changed: [yyjjjjy666-3]
 changed: [yyjjjjy666-1]
 changed: [yyjjjjy666-2]
+changed: [yyjjjjy666-3]
 
 TASK [agama : install and start agama 2] ***************************************
 changed: [yyjjjjy666-2]
-changed: [yyjjjjy666-3]
 changed: [yyjjjjy666-1]
+changed: [yyjjjjy666-3]
 
 PLAY [All machines] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [nginx : Install nginx] ***************************************************
@@ -913,20 +893,6 @@ The following NEW packages will be installed:
   libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream libtiff5
   libwebp6 libxpm4 nginx nginx-common nginx-core
 0 upgraded, 17 newly installed, 0 to remove and 138 not upgraded.
-changed: [yyjjjjy666-2]
-The following additional packages will be installed:
-  fontconfig-config fonts-dejavu-core libfontconfig1 libgd3 libjbig0
-  libjpeg-turbo8 libjpeg8 libnginx-mod-http-image-filter
-  libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream libtiff5
-  libwebp6 libxpm4 nginx-common nginx-core
-Suggested packages:
-  libgd-tools fcgiwrap nginx-doc ssl-cert
-The following NEW packages will be installed:
-  fontconfig-config fonts-dejavu-core libfontconfig1 libgd3 libjbig0
-  libjpeg-turbo8 libjpeg8 libnginx-mod-http-image-filter
-  libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream libtiff5
-  libwebp6 libxpm4 nginx nginx-common nginx-core
-0 upgraded, 17 newly installed, 0 to remove and 138 not upgraded.
 changed: [yyjjjjy666-3]
 The following additional packages will be installed:
   fontconfig-config fonts-dejavu-core libfontconfig1 libgd3 libjbig0
@@ -942,15 +908,29 @@ The following NEW packages will be installed:
   libwebp6 libxpm4 nginx nginx-common nginx-core
 0 upgraded, 17 newly installed, 0 to remove and 138 not upgraded.
 changed: [yyjjjjy666-1]
+The following additional packages will be installed:
+  fontconfig-config fonts-dejavu-core libfontconfig1 libgd3 libjbig0
+  libjpeg-turbo8 libjpeg8 libnginx-mod-http-image-filter
+  libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream libtiff5
+  libwebp6 libxpm4 nginx-common nginx-core
+Suggested packages:
+  libgd-tools fcgiwrap nginx-doc ssl-cert
+The following NEW packages will be installed:
+  fontconfig-config fonts-dejavu-core libfontconfig1 libgd3 libjbig0
+  libjpeg-turbo8 libjpeg8 libnginx-mod-http-image-filter
+  libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream libtiff5
+  libwebp6 libxpm4 nginx nginx-common nginx-core
+0 upgraded, 17 newly installed, 0 to remove and 138 not upgraded.
+changed: [yyjjjjy666-2]
 
 TASK [nginx : Start nginx service] *********************************************
-ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 TASK [nginx : Copy config to location] *****************************************
 --- before: /etc/nginx/sites-enabled/default
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpfu__m_hj/default.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpz1ftduq9/default.j2
 @@ -1,91 +1,37 @@
 -##
 -# You should look at the following URL's in order to grasp a solid understanding
@@ -1082,7 +1062,7 @@ TASK [nginx : Copy config to location] *****************************************
 
 changed: [yyjjjjy666-2]
 --- before: /etc/nginx/sites-enabled/default
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp_mvasm3r/default.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpdzp7bayu/default.j2
 @@ -1,91 +1,37 @@
 -##
 -# You should look at the following URL's in order to grasp a solid understanding
@@ -1214,7 +1194,7 @@ changed: [yyjjjjy666-2]
 
 changed: [yyjjjjy666-1]
 --- before: /etc/nginx/sites-enabled/default
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpqgaaxgol/default.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpohjlinqf/default.j2
 @@ -1,91 +1,33 @@
 -##
 -# You should look at the following URL's in order to grasp a solid understanding
@@ -1346,7 +1326,7 @@ TASK [nginx_exporter : Download Nginx exporter] ********************************
 The following NEW packages will be installed:
   prometheus-nginx-exporter
 0 upgraded, 1 newly installed, 0 to remove and 138 not upgraded.
-changed: [yyjjjjy666-3]
+changed: [yyjjjjy666-2]
 The following NEW packages will be installed:
   prometheus-nginx-exporter
 0 upgraded, 1 newly installed, 0 to remove and 138 not upgraded.
@@ -1354,7 +1334,7 @@ changed: [yyjjjjy666-1]
 The following NEW packages will be installed:
   prometheus-nginx-exporter
 0 upgraded, 1 newly installed, 0 to remove and 138 not upgraded.
-changed: [yyjjjjy666-2]
+changed: [yyjjjjy666-3]
 
 TASK [nginx_exporter : start nginx-exporter] ***********************************
 changed: [yyjjjjy666-1]
@@ -1363,7 +1343,18 @@ changed: [yyjjjjy666-3]
 
 TASK [nginx_exporter : copy exporter config] ***********************************
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpvdom5e01/exporter.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpwtvs75kv/exporter.j2
+@@ -0,0 +1,6 @@
++server {
++    listen 8080 default_server;
++    location = /stub_status {
++        stub_status;
++    }
++}
+
+changed: [yyjjjjy666-3]
+--- before
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpwweiqe9h/exporter.j2
 @@ -0,0 +1,6 @@
 +server {
 +    listen 8080 default_server;
@@ -1374,7 +1365,7 @@ TASK [nginx_exporter : copy exporter config] ***********************************
 
 changed: [yyjjjjy666-1]
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmph8iosfr6/exporter.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpgrt621id/exporter.j2
 @@ -0,0 +1,6 @@
 +server {
 +    listen 8080 default_server;
@@ -1384,34 +1375,23 @@ changed: [yyjjjjy666-1]
 +}
 
 changed: [yyjjjjy666-2]
---- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpdm_d1cam/exporter.j2
-@@ -0,0 +1,6 @@
-+server {
-+    listen 8080 default_server;
-+    location = /stub_status {
-+        stub_status;
-+    }
-+}
-
-changed: [yyjjjjy666-3]
 
 RUNNING HANDLER [nginx : Restart nginx service] ********************************
 changed: [yyjjjjy666-2]
-changed: [yyjjjjy666-1]
 changed: [yyjjjjy666-3]
+changed: [yyjjjjy666-1]
 
 RUNNING HANDLER [nginx_exporter : restart nginx exporter] **********************
+changed: [yyjjjjy666-3]
 changed: [yyjjjjy666-1]
 changed: [yyjjjjy666-2]
-changed: [yyjjjjy666-3]
 
 PLAY [All machines] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-2]
 
 TASK [node_exporter : Exporter packages] ***************************************
 The following additional packages will be installed:
@@ -1425,16 +1405,6 @@ The following NEW packages will be installed:
 0 upgraded, 7 newly installed, 0 to remove and 138 not upgraded.
 changed: [yyjjjjy666-1]
 The following additional packages will be installed:
-  libio-pty-perl libipc-run-perl libtime-duration-perl moreutils
-  prometheus-node-exporter-collectors smartmontools
-Suggested packages:
-  gsmartcontrol smart-notifier mailx | mailutils
-The following NEW packages will be installed:
-  libio-pty-perl libipc-run-perl libtime-duration-perl moreutils
-  prometheus-node-exporter prometheus-node-exporter-collectors smartmontools
-0 upgraded, 7 newly installed, 0 to remove and 138 not upgraded.
-changed: [yyjjjjy666-2]
-The following additional packages will be installed:
   libio-pty-perl libipc-run-perl libtime-duration-perl libtimedate-perl
   moreutils prometheus-node-exporter-collectors smartmontools
 Suggested packages:
@@ -1445,6 +1415,16 @@ The following NEW packages will be installed:
   smartmontools
 0 upgraded, 8 newly installed, 0 to remove and 138 not upgraded.
 changed: [yyjjjjy666-3]
+The following additional packages will be installed:
+  libio-pty-perl libipc-run-perl libtime-duration-perl moreutils
+  prometheus-node-exporter-collectors smartmontools
+Suggested packages:
+  gsmartcontrol smart-notifier mailx | mailutils
+The following NEW packages will be installed:
+  libio-pty-perl libipc-run-perl libtime-duration-perl moreutils
+  prometheus-node-exporter prometheus-node-exporter-collectors smartmontools
+0 upgraded, 7 newly installed, 0 to remove and 138 not upgraded.
+changed: [yyjjjjy666-2]
 
 TASK [node_exporter : Enable node exporter service] ****************************
 ok: [yyjjjjy666-1]
@@ -1476,7 +1456,7 @@ changed: [yyjjjjy666-3]
 
 TASK [prometheus : Configure Prometheus] ***************************************
 --- before: /etc/prometheus/prometheus.yml
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpy42_cubp/prometheus.yml.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmp2tof4amk/prometheus.yml.j2
 @@ -1,44 +1,56 @@
 -# Sample config for Prometheus.
 +global:
@@ -1574,7 +1554,7 @@ changed: [yyjjjjy666-3]
 
 TASK [prometheus : ARGS file] **************************************************
 --- before: /etc/default/prometheus
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpkjw3guh5/prometheus
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpfkja5_11/prometheus
 @@ -1,57 +1 @@
 -# Set the command-line arguments to pass to the server.
 -ARGS=""
@@ -1633,7 +1613,7 @@ TASK [prometheus : ARGS file] **************************************************
 -#                             Maximum number of queries executed concurrently.
 -#  --log.level=info           Only log messages with the given severity or
 -#                             above. One of: [debug, info, warn, error]
-+ARGS="--web.external-url=http://193.40.156.67:11580/prometheus"
++ARGS="--web.external-url=http://193.40.156.67:14180/prometheus"
 
 changed: [yyjjjjy666-3]
 
@@ -1665,8 +1645,8 @@ changed: [yyjjjjy666-2]
 changed: [yyjjjjy666-1]
 
 TASK [mysql_exporter : put template] *******************************************
-changed: [yyjjjjy666-1]
 changed: [yyjjjjy666-2]
+changed: [yyjjjjy666-1]
 
 TASK [mysql_exporter : sleep 10 sec] *******************************************
 Pausing for 10 seconds
@@ -1675,7 +1655,7 @@ ok: [yyjjjjy666-1]
 
 TASK [mysql_exporter : put template] *******************************************
 --- before: /etc/default/prometheus-mysqld-exporter
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp8bo9ukvv/prometheus-mysqld-exporter.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmp2mp5ezoo/prometheus-mysqld-exporter.j2
 @@ -1,120 +1 @@
 -# By default the connection string will be read from
 -# $HOME/my.cnf or from the file specified with the -config.my-cnf parameter.
@@ -1801,7 +1781,7 @@ TASK [mysql_exporter : put template] *******************************************
 
 changed: [yyjjjjy666-1]
 --- before: /etc/default/prometheus-mysqld-exporter
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmplwlaiwc5/prometheus-mysqld-exporter.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpc1ea2kfy/prometheus-mysqld-exporter.j2
 @@ -1,120 +1 @@
 -# By default the connection string will be read from
 -# $HOME/my.cnf or from the file specified with the -config.my-cnf parameter.
@@ -1937,8 +1917,8 @@ changed: [yyjjjjy666-1]
 changed: [yyjjjjy666-2]
 
 RUNNING HANDLER [mysql_exporter : restart mysqld exporter] *********************
-changed: [yyjjjjy666-1]
 changed: [yyjjjjy666-2]
+changed: [yyjjjjy666-1]
 
 PLAY [grafana] *****************************************************************
 
@@ -1972,7 +1952,7 @@ changed: [yyjjjjy666-3]
 
 TASK [grafana : prometheus datasource] *****************************************
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp4px984bm/prometheus.yaml.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpneytlw0k/prometheus.yaml.j2
 @@ -0,0 +1,23 @@
 +   apiVersion: 1
 +
@@ -1985,7 +1965,7 @@ TASK [grafana : prometheus datasource] *****************************************
 +     type: prometheus
 +     access: proxy
 +     orgId: 1
-+     url: http://193.40.156.67:11580/prometheus
++     url: http://193.40.156.67:14180/prometheus
 +     password:
 +     user:
 +     database:
@@ -2002,7 +1982,7 @@ changed: [yyjjjjy666-3]
 
 TASK [grafana : influxdb datasource] *******************************************
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp4ilfl4qg/influx.yaml.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpy4cnllny/influx.yaml.j2
 @@ -0,0 +1,13 @@
 +apiVersion: 1
 +
@@ -2022,7 +2002,7 @@ changed: [yyjjjjy666-3]
 
 TASK [grafana : telegraf datasource] *******************************************
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpujtiwv32/telegraf.yaml.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpuoi4e72r/telegraf.yaml.j2
 @@ -0,0 +1,13 @@
 +apiVersion: 1
 +
@@ -2042,7 +2022,7 @@ changed: [yyjjjjy666-3]
 
 TASK [grafana : put dashboard.yaml to dashboards] ******************************
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmphykpx6m5/dashboard.yaml.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpph593xtl/dashboard.yaml.j2
 @@ -0,0 +1,14 @@
 +apiVersion: 1
 +
@@ -4759,7 +4739,7 @@ changed: [yyjjjjy666-3]
 
 TASK [influxdb : influxdb configuration] ***************************************
 --- before: /etc/influxdb/influxdb.conf
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpb3cmwtp5/influxdb.conf.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpl9469wcc/influxdb.conf.j2
 @@ -1,596 +1,22 @@
 -### Welcome to the InfluxDB configuration file.
 -
@@ -5391,7 +5371,7 @@ changed: [yyjjjjy666-3]
 
 TASK [influxdb_backup : put backup template] ***********************************
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp2r_onh9t/influxdb-backup.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmp4mwzshk4/influxdb-backup.j2
 @@ -0,0 +1,3 @@
 +55 * * * *  backup rm -rf /home/backup/influxdb/*; influxd backup -portable -database telegraf /home/backup/influxdb
 +40 0 28 * *  backup  duplicity --no-encryption full /home/backup/influxdb/ rsync://yyjjjjy666@backup.spray.gel//home/yyjjjjy666/
@@ -5443,7 +5423,7 @@ changed: [yyjjjjy666-1]
 
 TASK [pinger : Create pinger configuration] ************************************
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpkl2hfl0y/pinger.conf.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpwgikupiy/pinger.conf.j2
 @@ -0,0 +1,3 @@
 +database_url=http://yyjjjjy666-3:8086
 +database_name=latency
@@ -5453,7 +5433,7 @@ changed: [yyjjjjy666-1]
 
 TASK [pinger : Place script to /usr/local/bin/pinger] **************************
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp417ditst/pinger.sh.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmp10o6qwaq/pinger.sh.j2
 @@ -0,0 +1,26 @@
 +#!/bin/bash
 +
@@ -5486,7 +5466,7 @@ changed: [yyjjjjy666-1]
 
 TASK [pinger : Create pinger service] ******************************************
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp_wtzf6vi/pinger.service.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpeawyzsb9/pinger.service.j2
 @@ -0,0 +1,11 @@
 +[Unit]
 +Description=Pinger service reporting connection latency
@@ -5521,24 +5501,13 @@ ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 
 TASK [rsyslog : Install Rsyslog] ***********************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [rsyslog : Reconfigure Rsyslog] *******************************************
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmptj61bz92/10-telegraf.conf.j2
-@@ -0,0 +1,6 @@
-+$ActionQueueType LinkedList # use asynchronous processing
-+$ActionQueueFileName srvrfwd # set file name, also enables disk mode
-+$ActionResumeRetryCount -1 # infinite retries on insert failure
-+$ActionQueueSaveOnShutdown on # save in-memory data if rsyslog shuts down
-+
-+*.* @influxdb:6514;RSYSLOG_SyslogProtocol23Format
-
-changed: [yyjjjjy666-2]
---- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpnunb9pc0/10-telegraf.conf.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpdjhs6rkz/10-telegraf.conf.j2
 @@ -0,0 +1,6 @@
 +$ActionQueueType LinkedList # use asynchronous processing
 +$ActionQueueFileName srvrfwd # set file name, also enables disk mode
@@ -5549,7 +5518,18 @@ changed: [yyjjjjy666-2]
 
 changed: [yyjjjjy666-1]
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpuirxb2rw/10-telegraf.conf.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmplhuwmu91/10-telegraf.conf.j2
+@@ -0,0 +1,6 @@
++$ActionQueueType LinkedList # use asynchronous processing
++$ActionQueueFileName srvrfwd # set file name, also enables disk mode
++$ActionResumeRetryCount -1 # infinite retries on insert failure
++$ActionQueueSaveOnShutdown on # save in-memory data if rsyslog shuts down
++
++*.* @influxdb:6514;RSYSLOG_SyslogProtocol23Format
+
+changed: [yyjjjjy666-2]
+--- before
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmp39h9lpgs/10-telegraf.conf.j2
 @@ -0,0 +1,6 @@
 +$ActionQueueType LinkedList # use asynchronous processing
 +$ActionQueueFileName srvrfwd # set file name, also enables disk mode
@@ -5561,13 +5541,13 @@ changed: [yyjjjjy666-1]
 changed: [yyjjjjy666-3]
 
 TASK [rsyslog : start rsyslog] *************************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 RUNNING HANDLER [rsyslog : restart rsyslog] ************************************
-changed: [yyjjjjy666-2]
 changed: [yyjjjjy666-3]
+changed: [yyjjjjy666-2]
 changed: [yyjjjjy666-1]
 
 PLAY [configure influx and backup] *********************************************
@@ -5580,7 +5560,7 @@ changed: [yyjjjjy666-3]
 
 TASK [influxdb_exporter : put service file] ************************************
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp0mrnzg6y/prometheus-influxdb-stats-exporter.service.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmp2blsmgef/prometheus-influxdb-stats-exporter.service.j2
 @@ -0,0 +1,11 @@
 +[Unit]
 +Description=InfluxDB stats
@@ -5634,28 +5614,28 @@ The following NEW packages will be installed:
 changed: [yyjjjjy666-1]
 
 TASK [keepalived : creater keepalivescript user] *******************************
-changed: [yyjjjjy666-1]
 changed: [yyjjjjy666-2]
+changed: [yyjjjjy666-1]
 
 TASK [keepalived : put keepalived script] **************************************
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmprs2c4x48/keepalived_script.j2
-@@ -0,0 +1,2 @@
-+#!/bin/bash
-+ss -ntl | grep -q ':88 '
-
-changed: [yyjjjjy666-1]
---- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp420c8e5y/keepalived_script.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpilin9mhd/keepalived_script.j2
 @@ -0,0 +1,2 @@
 +#!/bin/bash
 +ss -ntl | grep -q ':88 '
 
 changed: [yyjjjjy666-2]
+--- before
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmp2y80mst5/keepalived_script.j2
+@@ -0,0 +1,2 @@
++#!/bin/bash
++ss -ntl | grep -q ':88 '
+
+changed: [yyjjjjy666-1]
 
 TASK [keepalived : put keepalived config] **************************************
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpd5kyys4y/keepalived.conf.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpqlkh3rr0/keepalived.conf.j2
 @@ -0,0 +1,29 @@
 +global_defs {
 +    enable_script_security
@@ -5674,11 +5654,11 @@ TASK [keepalived : put keepalived config] **************************************
 +        priority 100
 +        advert_int 1
 +    virtual_ipaddress {
-+            192.168.100.48/24
++            192.168.100.165/24
 +        }
 +
 +    unicast_peer {
-+                                        192.168.42.160
++                                        192.168.42.72
 +                    }
 +
 +
@@ -5689,7 +5669,7 @@ TASK [keepalived : put keepalived config] **************************************
 
 changed: [yyjjjjy666-1]
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpsju5ggd6/keepalived.conf.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpr80wbck3/keepalived.conf.j2
 @@ -0,0 +1,29 @@
 +global_defs {
 +    enable_script_security
@@ -5708,11 +5688,11 @@ changed: [yyjjjjy666-1]
 +        priority 99
 +        advert_int 1
 +    virtual_ipaddress {
-+            192.168.100.48/24
++            192.168.100.165/24
 +        }
 +
 +    unicast_peer {
-+                        192.168.42.48
++                        192.168.42.165
 +                                    }
 +
 +
@@ -5724,20 +5704,20 @@ changed: [yyjjjjy666-1]
 changed: [yyjjjjy666-2]
 
 TASK [keepalived : start service keepalived] ***********************************
-changed: [yyjjjjy666-2]
 changed: [yyjjjjy666-1]
+changed: [yyjjjjy666-2]
 
 TASK [keepalived_exporter : download and unzip archive with exporter] **********
-changed: [yyjjjjy666-2]
 changed: [yyjjjjy666-1]
+changed: [yyjjjjy666-2]
 
 TASK [keepalived_exporter : copy keepalived exporter] **************************
-changed: [yyjjjjy666-2]
 changed: [yyjjjjy666-1]
+changed: [yyjjjjy666-2]
 
 TASK [keepalived_exporter : create service] ************************************
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpb44rs5nj/prometheus-keepalived-exporter.service.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmp899cg5p9/prometheus-keepalived-exporter.service.j2
 @@ -0,0 +1,9 @@
 +[Unit]
 +After=network-online.target
@@ -5751,7 +5731,7 @@ TASK [keepalived_exporter : create service] ************************************
 
 changed: [yyjjjjy666-2]
 --- before
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp3x13stlo/prometheus-keepalived-exporter.service.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmplra6m28q/prometheus-keepalived-exporter.service.j2
 @@ -0,0 +1,9 @@
 +[Unit]
 +After=network-online.target
@@ -5794,20 +5774,20 @@ Suggested packages:
   vim-haproxy haproxy-doc
 The following NEW packages will be installed:
   haproxy liblua5.3-0
-0 upgraded, 2 newly installed, 0 to remove and 138 not upgraded.
-changed: [yyjjjjy666-2]
+0 upgraded, 2 newly installed, 0 to remove and 136 not upgraded.
+changed: [yyjjjjy666-1]
 The following additional packages will be installed:
   liblua5.3-0
 Suggested packages:
   vim-haproxy haproxy-doc
 The following NEW packages will be installed:
   haproxy liblua5.3-0
-0 upgraded, 2 newly installed, 0 to remove and 136 not upgraded.
-changed: [yyjjjjy666-1]
+0 upgraded, 2 newly installed, 0 to remove and 138 not upgraded.
+changed: [yyjjjjy666-2]
 
 TASK [haproxy : put haproxy config] ********************************************
 --- before: /etc/haproxy/haproxy.cfg
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpd39t5drj/haproxy.cfg.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmpc8h96mhn/haproxy.cfg.j2
 @@ -1,34 +1,34 @@
  global
 -	log /dev/log	local0
@@ -5874,7 +5854,7 @@ TASK [haproxy : put haproxy config] ********************************************
 
 changed: [yyjjjjy666-2]
 --- before: /etc/haproxy/haproxy.cfg
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmp2kuv6oiu/haproxy.cfg.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmp_ru6rfbs/haproxy.cfg.j2
 @@ -1,34 +1,34 @@
  global
 -	log /dev/log	local0
@@ -5944,16 +5924,16 @@ changed: [yyjjjjy666-1]
 TASK [haproxy : Install haproxy exporter] **************************************
 The following NEW packages will be installed:
   prometheus-haproxy-exporter
-0 upgraded, 1 newly installed, 0 to remove and 138 not upgraded.
-changed: [yyjjjjy666-2]
-The following NEW packages will be installed:
-  prometheus-haproxy-exporter
 0 upgraded, 1 newly installed, 0 to remove and 136 not upgraded.
 changed: [yyjjjjy666-1]
+The following NEW packages will be installed:
+  prometheus-haproxy-exporter
+0 upgraded, 1 newly installed, 0 to remove and 138 not upgraded.
+changed: [yyjjjjy666-2]
 
 TASK [haproxy : add correct args] **********************************************
 --- before: /etc/default/prometheus-haproxy-exporter
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpdyt7fz6w/prometheus-haproxy-exporter.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmp0kveda25/prometheus-haproxy-exporter.j2
 @@ -1,35 +1 @@
 -# Set the command-line arguments to pass to the server.
 -# Due to shell scaping, to pass backslashes for regexes, you need to double
@@ -5994,7 +5974,7 @@ TASK [haproxy : add correct args] **********************************************
 
 changed: [yyjjjjy666-2]
 --- before: /etc/default/prometheus-haproxy-exporter
-+++ after: /home/administrator/.ansible/tmp/ansible-local-295375c6cd9z/tmpidwfcc9e/prometheus-haproxy-exporter.j2
++++ after: /home/administrator/.ansible/tmp/ansible-local-4062jekq4d6p/tmp3muibcoc/prometheus-haproxy-exporter.j2
 @@ -1,35 +1 @@
 -# Set the command-line arguments to pass to the server.
 -# Due to shell scaping, to pass backslashes for regexes, you need to double
@@ -6036,8 +6016,8 @@ changed: [yyjjjjy666-2]
 changed: [yyjjjjy666-1]
 
 TASK [haproxy : start service haproxy] *****************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [haproxy : start service haproxy exporter] ********************************
 ok: [yyjjjjy666-1]
@@ -6053,69 +6033,69 @@ changed: [yyjjjjy666-1]
 
 PLAY RECAP *********************************************************************
 yyjjjjy666-1               : ok=105  changed=77   unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
-yyjjjjy666-2               : ok=92   changed=68   unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
-yyjjjjy666-3               : ok=85   changed=63   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+yyjjjjy666-2               : ok=92   changed=67   unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+yyjjjjy666-3               : ok=85   changed=62   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
 + ansible-playbook infra.yaml --diff
 
 PLAY [Init] ********************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 
 TASK [init : Update APT cache] *************************************************
+ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 
 TASK [init : set hostname] *****************************************************
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 
 TASK [backup : create user backup] *********************************************
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [backup : Create a directory if it does not exist] ************************
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 
 TASK [backup : put known hosts] ************************************************
 ok: [yyjjjjy666-2]
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 TASK [backup : install duplicity] **********************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 
 PLAY [Setup DB Server] *********************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql : Install MySQL server] ********************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql : Start mysql service] *********************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql : Copy override to location] ***************************************
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [mysql : Create MySQL database] *******************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql : Create MySQL user] ***********************************************
 ok: [yyjjjjy666-2]
@@ -6126,8 +6106,8 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [mysql : read only mode on replica server] ********************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql_backup : Create a directory if it does not exist] ******************
 ok: [yyjjjjy666-1]
@@ -6153,8 +6133,8 @@ PLAY [Configure DNS Server] ****************************************************
 
 TASK [Gathering Facts] *********************************************************
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [bind : install bind9] ****************************************************
 ok: [yyjjjjy666-3]
@@ -6163,13 +6143,13 @@ ok: [yyjjjjy666-2]
 
 TASK [bind : Start service bind9] **********************************************
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [bind : named.conf.options] ***********************************************
-ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
 
 TASK [bind : db.spray] *********************************************************
 skipping: [yyjjjjy666-1]
@@ -6182,9 +6162,9 @@ skipping: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [bind : named.conf.local] *************************************************
-ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 
 TASK [bind : Execute handlers] *************************************************
 
@@ -6201,8 +6181,8 @@ skipping: [yyjjjjy666-1] => (item=None)
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
-skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
+skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
@@ -6247,9 +6227,9 @@ ok: [yyjjjjy666-2]
 PLAY [dns resolver] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 
 TASK [dns_resolve : disable systemd-resolved] **********************************
 ok: [yyjjjjy666-1]
@@ -6258,8 +6238,8 @@ ok: [yyjjjjy666-3]
 
 TASK [dns_resolve : resolv.conf] ***********************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 
 PLAY [fix docker] **************************************************************
 
@@ -6270,12 +6250,12 @@ ok: [yyjjjjy666-3]
 
 TASK [docker_fix : Install iptables-persistent] ********************************
 ok: [yyjjjjy666-2]
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 TASK [docker_fix : rule for docker] ********************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 TASK [docker_fix : Restore iptables] *******************************************
@@ -6294,8 +6274,8 @@ mistake may lead the ansible controller to loose access to the hosts and never
 regain it before fixing firewall rules through a serial console, or any other
 way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
 to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
 
 PLAY [docker] ******************************************************************
@@ -6306,9 +6286,9 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [docker : install docker] *************************************************
+ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 
 TASK [docker : start docker service] *******************************************
 ok: [yyjjjjy666-1]
@@ -6318,9 +6298,9 @@ ok: [yyjjjjy666-3]
 PLAY [All machines] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-2]
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [agama : create dir for agama] ********************************************
 ok: [yyjjjjy666-1]
@@ -6329,12 +6309,12 @@ ok: [yyjjjjy666-3]
 
 TASK [agama : install agama] ***************************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 
 TASK [agama : build docker image] **********************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 TASK [agama : install and start agama] *****************************************
@@ -6343,9 +6323,9 @@ ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 
 TASK [agama : install and start agama 2] ***************************************
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-1]
 
 PLAY [All machines] ************************************************************
 
@@ -6361,23 +6341,23 @@ ok: [yyjjjjy666-3]
 
 TASK [nginx : Start nginx service] *********************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 
 TASK [nginx : Copy config to location] *****************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [nginx_exporter : Download Nginx exporter] ********************************
 ok: [yyjjjjy666-2]
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 TASK [nginx_exporter : start nginx-exporter] ***********************************
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-1]
 
 TASK [nginx_exporter : copy exporter config] ***********************************
 ok: [yyjjjjy666-1]
@@ -6388,8 +6368,8 @@ PLAY [All machines] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 
 TASK [node_exporter : Exporter packages] ***************************************
 ok: [yyjjjjy666-1]
@@ -6430,22 +6410,22 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [mysql_exporter : put template] *******************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [mysql_exporter : sleep 10 sec] *******************************************
 skipping: [yyjjjjy666-1]
 
 TASK [mysql_exporter : put template] *******************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql_exporter : sleep 10 sec] *******************************************
 skipping: [yyjjjjy666-1]
 
 TASK [mysql_exporter : Start mysql exporter] ***********************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 PLAY [grafana] *****************************************************************
 
@@ -6545,19 +6525,19 @@ ok: [yyjjjjy666-1]
 PLAY [transfer and setup pinger sciprt] ****************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 
 TASK [rsyslog : Install Rsyslog] ***********************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 
 TASK [rsyslog : Reconfigure Rsyslog] *******************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 
 TASK [rsyslog : start rsyslog] *************************************************
 ok: [yyjjjjy666-1]
@@ -6581,12 +6561,12 @@ ok: [yyjjjjy666-3]
 PLAY [keepalived] **************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [keepalived : Install keepalived] *****************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [keepalived : creater keepalivescript user] *******************************
 ok: [yyjjjjy666-1]
@@ -6627,20 +6607,20 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [haproxy : Install haproxy] ***********************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [haproxy : put haproxy config] ********************************************
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [haproxy : Install haproxy exporter] **************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [haproxy : add correct args] **********************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [haproxy : start service haproxy] *****************************************
 ok: [yyjjjjy666-1]
@@ -6656,17 +6636,17 @@ yyjjjjy666-2               : ok=80   changed=0    unreachable=0    failed=0    s
 yyjjjjy666-3               : ok=75   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
 + ansible all -b -m reboot -a test_command=uptime
-yyjjjjy666-3 | CHANGED => {
-    "changed": true,
-    "elapsed": 41,
-    "rebooted": true
-}
 yyjjjjy666-1 | CHANGED => {
     "changed": true,
-    "elapsed": 41,
+    "elapsed": 40,
     "rebooted": true
 }
 yyjjjjy666-2 | CHANGED => {
+    "changed": true,
+    "elapsed": 41,
+    "rebooted": true
+}
+yyjjjjy666-3 | CHANGED => {
     "changed": true,
     "elapsed": 41,
     "rebooted": true
@@ -6676,39 +6656,39 @@ yyjjjjy666-2 | CHANGED => {
 PLAY [Init] ********************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [init : Update APT cache] *************************************************
+ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 
 TASK [init : set hostname] *****************************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 TASK [backup : create user backup] *********************************************
 ok: [yyjjjjy666-2]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
 
 TASK [backup : Create a directory if it does not exist] ************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [backup : put known hosts] ************************************************
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-2]
 
 TASK [backup : install duplicity] **********************************************
-ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 PLAY [Setup DB Server] *********************************************************
 
@@ -6737,8 +6717,8 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 
 TASK [mysql : Create replication MySQL user] ***********************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [mysql : read only mode on replica server] ********************************
 ok: [yyjjjjy666-2]
@@ -6749,42 +6729,42 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [mysql_backup : Create MySQL user backup] *********************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql_backup : cnf file] *************************************************
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 
 TASK [mysql_backup : put conf file] ********************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [mysql_backup : Ensure that cron file is created] *************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 PLAY [Configure DNS Server] ****************************************************
 
 TASK [Gathering Facts] *********************************************************
 ok: [yyjjjjy666-2]
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 TASK [bind : install bind9] ****************************************************
-ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 TASK [bind : Start service bind9] **********************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 
 TASK [bind : named.conf.options] ***********************************************
-ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
 
 TASK [bind : db.spray] *********************************************************
 skipping: [yyjjjjy666-1]
@@ -6797,9 +6777,9 @@ skipping: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [bind : named.conf.local] *************************************************
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
 
 TASK [bind : Execute handlers] *************************************************
 
@@ -6816,9 +6796,8 @@ skipping: [yyjjjjy666-1] => (item=None)
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
-skipping: [yyjjjjy666-2] => (item=None) 
-skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
+skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
@@ -6832,6 +6811,7 @@ skipping: [yyjjjjy666-1] => (item=None)
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-1] => (item=None) 
 skipping: [yyjjjjy666-1]
+skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
 skipping: [yyjjjjy666-2] => (item=None) 
@@ -6850,9 +6830,9 @@ ok: [yyjjjjy666-3] => (item=None)
 ok: [yyjjjjy666-3]
 
 TASK [bind_exporter : install bind exporter] ***********************************
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 
 TASK [bind_exporter : enable bind exporter] ************************************
 ok: [yyjjjjy666-3]
@@ -6863,18 +6843,18 @@ PLAY [dns resolver] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
 ok: [yyjjjjy666-2]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-3]
 
 TASK [dns_resolve : disable systemd-resolved] **********************************
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 
 TASK [dns_resolve : resolv.conf] ***********************************************
-ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 PLAY [fix docker] **************************************************************
 
@@ -6884,14 +6864,14 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 TASK [docker_fix : Install iptables-persistent] ********************************
-ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 TASK [docker_fix : rule for docker] ********************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 
 TASK [docker_fix : Restore iptables] *******************************************
 [WARNING]: Attempts to restore iptables state without rollback in case of
@@ -6909,21 +6889,21 @@ mistake may lead the ansible controller to loose access to the hosts and never
 regain it before fixing firewall rules through a serial console, or any other
 way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
 to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 
 PLAY [docker] ******************************************************************
 
 TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-2]
 
 TASK [docker : install docker] *************************************************
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-1]
 
 TASK [docker : start docker service] *******************************************
 ok: [yyjjjjy666-1]
@@ -6933,23 +6913,23 @@ ok: [yyjjjjy666-3]
 PLAY [All machines] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 TASK [agama : create dir for agama] ********************************************
 ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
 
 TASK [agama : install agama] ***************************************************
-ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [agama : build docker image] **********************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [agama : install and start agama] *****************************************
@@ -6958,57 +6938,57 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 TASK [agama : install and start agama 2] ***************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
 
 PLAY [All machines] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 TASK [nginx : Install nginx] ***************************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 TASK [nginx : Start nginx service] *********************************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 TASK [nginx : Copy config to location] *****************************************
-ok: [yyjjjjy666-1]
-ok: [yyjjjjy666-3]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
 
 TASK [nginx_exporter : Download Nginx exporter] ********************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 
 TASK [nginx_exporter : start nginx-exporter] ***********************************
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-1]
 
 TASK [nginx_exporter : copy exporter config] ***********************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 
 PLAY [All machines] ************************************************************
 
 TASK [Gathering Facts] *********************************************************
+ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-1]
 
 TASK [node_exporter : Exporter packages] ***************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 
 TASK [node_exporter : Enable node exporter service] ****************************
@@ -7037,8 +7017,8 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
 
 TASK [mysql_exporter : install mysqld exporter] ********************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [mysql_exporter : Create MySQL user exporter] *****************************
 ok: [yyjjjjy666-1]
@@ -7059,8 +7039,8 @@ TASK [mysql_exporter : sleep 10 sec] *******************************************
 skipping: [yyjjjjy666-1]
 
 TASK [mysql_exporter : Start mysql exporter] ***********************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 PLAY [grafana] *****************************************************************
 
@@ -7170,14 +7150,14 @@ ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
 
 TASK [rsyslog : Reconfigure Rsyslog] *******************************************
+ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
-ok: [yyjjjjy666-2]
 
 TASK [rsyslog : start rsyslog] *************************************************
-ok: [yyjjjjy666-2]
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-3]
+ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 PLAY [configure influx and backup] *********************************************
 
@@ -7196,16 +7176,16 @@ ok: [yyjjjjy666-3]
 PLAY [keepalived] **************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [keepalived : Install keepalived] *****************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [keepalived : creater keepalivescript user] *******************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [keepalived : put keepalived script] **************************************
 ok: [yyjjjjy666-1]
@@ -7220,16 +7200,16 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 
 TASK [keepalived_exporter : download and unzip archive with exporter] **********
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [keepalived_exporter : copy keepalived exporter] **************************
-ok: [yyjjjjy666-1]
 ok: [yyjjjjy666-2]
+ok: [yyjjjjy666-1]
 
 TASK [keepalived_exporter : create service] ************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [keepalived_exporter : start enable keepalived exporter] ******************
 ok: [yyjjjjy666-2]
@@ -7238,8 +7218,8 @@ ok: [yyjjjjy666-1]
 PLAY [haproxy] *****************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [haproxy : Install haproxy] ***********************************************
 ok: [yyjjjjy666-2]
@@ -7254,8 +7234,8 @@ ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
 
 TASK [haproxy : add correct args] **********************************************
-ok: [yyjjjjy666-2]
 ok: [yyjjjjy666-1]
+ok: [yyjjjjy666-2]
 
 TASK [haproxy : start service haproxy] *****************************************
 ok: [yyjjjjy666-1]
@@ -7271,4 +7251,4 @@ yyjjjjy666-2               : ok=80   changed=0    unreachable=0    failed=0    s
 yyjjjjy666-3               : ok=75   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
 + date
-K 22 dets  2021 00:21:00 EET
+N 23 dets  2021 10:29:00 EET

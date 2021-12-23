@@ -23,6 +23,7 @@
       dest: /home/backup/.my.cnf
       mode: '0700'
     notify: Restart mysql service
+    no_log: true
 
   - name: put conf file
     template:
